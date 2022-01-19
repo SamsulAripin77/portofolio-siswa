@@ -2,6 +2,8 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -36,7 +38,37 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'name' => $input['name'],
                 'email' => $input['email'],
             ])->save();
+
+            $userProfile = User::find($user->id);
+            $profile = [
+                'hp' => $input['hp'],
+                'url_linkedin' => $input['url_linkedin'],
+                'uname_linkedin' => $input['uname_linkedin'],
+                'address' => $input['address'],
+                'about_me' => $input['about_me'],
+                'nama_sekolah' => $input['nama_sekolah'],
+                'jurusan' => $input['jurusan'],
+                'nilai_rata' => $input['nilai_rata'],
+                'tahun_masuk' => $input['tahun_masuk'],
+                'tahun_keluar' => $input['tahun_keluar'],
+            ];
+            if ($userProfile->profile == null ){
+                $userProfile->profile()->save(new Profile($profile));
+            }else {
+                $userProfile->profile->update($profile);
+            }
+            
         }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
     /**
