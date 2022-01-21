@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\HobyController;
+use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::resource('/skills',SkillController::class);
     Route::resource('/hobbies',HobyController::class);
+    Route::resource('/organizations',OrganizationController::class);
+
 
 
     Route::get('/',[HomeController::class,'index'])->name('home');

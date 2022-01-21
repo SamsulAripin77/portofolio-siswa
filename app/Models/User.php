@@ -72,6 +72,30 @@ class User extends Authenticatable
        return $this->hasMany(Hoby::class,'user_id');
     }
 
+    public function organizations () {
+       return $this->hasMany(Organization::class);
+    }
+
+    public function experiences () {
+       return $this->hasMany(Experience::class);
+    }
+
+    public function works () {
+       return $this->hasMany(Work::class);
+    }
+
+    public function achivements () {
+       return $this->hasMany(Achivement::class);
+    }
+    
+    public function creations () {
+       return $this->hasMany(Creation::class);
+    }
+
+    public function sertifications () {
+       return $this->hasMany(Sertification::class);
+    }
+
     public function isAdmin () {
        return $this->role === 'admin';
     }

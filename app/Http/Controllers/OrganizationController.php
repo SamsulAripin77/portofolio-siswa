@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Traits\UploadCoverTrait;
 use App\Models\Organization;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrganizationController extends Controller
 {
+    use UploadCoverTrait;
     /**
      * Display a listing of the resource.
      *
@@ -14,20 +18,17 @@ class OrganizationController extends Controller
      */
     public function index()
     {
-        //
+        $organizations = User::find(Auth::id())->organizations;
+        if(Auth::user()->isAdmin()){
+            $organizations = Organization::all();
+        }
+        
+        return view('admin.index-organization',compact('organizations'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
+     * 
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -35,30 +36,12 @@ class OrganizationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $organization = new Organization();
+        $this->saveData($organization, $request);
+
+        return back()->with('message','Data Berhasil Disimpan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Organization  $organization
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Organization $organization)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Organization  $organization
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Organization $organization)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -69,7 +52,9 @@ class OrganizationController extends Controller
      */
     public function update(Request $request, Organization $organization)
     {
-        //
+        $this->saveData($organization, $request);
+
+        return back()->with('message','Data Berhasil Disimpan');
     }
 
     /**
@@ -80,6 +65,19 @@ class OrganizationController extends Controller
      */
     public function destroy(Organization $organization)
     {
-        //
+        $organization->delete();
+
+        return back()->with('message','Data Berhasil Dihapus');
+    }
+
+    public function saveData ($organization, $request) {
+        $image = $this->uploadCover($request);
+        $organization->name = $request->get('name');
+        $organization->position = $request->get('position');
+        $organization->thn_mulai = $request->get('thn_mulai');
+        $organization->thn_akhir = $request->get('thn_akhir');
+        $organization->image = $image;
+        $organization->user_id = Auth::id();
+        $organization->save();
     }
 }
