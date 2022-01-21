@@ -27,7 +27,7 @@ class CreateExperiencesTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
+     *P
      * @return void
      */
     public function down()

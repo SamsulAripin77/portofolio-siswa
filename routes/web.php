@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HobyController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\SkillController;
@@ -36,6 +37,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/skills',SkillController::class);
     Route::resource('/hobbies',HobyController::class);
     Route::resource('/organizations',OrganizationController::class);
+    Route::resource('/experiences',ExperienceController::class);
+
 
 
 
