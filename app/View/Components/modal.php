@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class button extends Component
+class modal extends Component
 {
     public $field;
     /**
@@ -12,7 +12,7 @@ class button extends Component
      *
      * @return void
      */
-    public function __construct($field = 'submit')
+    public function __construct($field)
     {
         $this->field = $field;
     }
@@ -24,6 +24,6 @@ class button extends Component
      */
     public function render()
     {
-        return view('components.button');
+        return view('components.modal');
     }
 }

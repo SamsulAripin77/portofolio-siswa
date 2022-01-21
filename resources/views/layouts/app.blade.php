@@ -19,7 +19,8 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased" x-data="{ showModal1: false, showModal2: false }"
+    :class="{'overflow-y-hidden': showModal1 | showModal2  }" >
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
@@ -36,13 +37,14 @@
 
             <!-- Page Content -->
             <main>
-                <div class="p-8 m-8 bg-white shadow-2xl rounded-3xl">
+                <div class="px-8 py-3 m-8 bg-white shadow-2xl rounded-3xl">
                     {{ $slot }}
                 </div>
             </main> 
         </div>
 
         @stack('modals')
+        @stack('scripts')
 
         @livewireScripts
     </body>

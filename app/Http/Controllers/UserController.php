@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Traits\InsertUserTrait;
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class UserController extends Controller
 {
+    use InsertUserTrait;
     /**
      * Display a listing of the resource.
      *
@@ -14,18 +19,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('admin.users.index', compact('users'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $users = User::with(['profile'])->get();
+        
+        return view('admin.users.index',compact('users'));
     }
 
     /**
@@ -36,7 +32,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $this->insert($user, $request);
+        return back()->with('message','Data Berhasil Disimpan');
     }
 
     /**
@@ -70,7 +68,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($id);
+        $request->validate([
+            'email' => "unique:users,email,{$id}",
+        ]);
+        $user = User::find($id);
+        $this->insert($user, $request);
+        return back()->with('message','Data Berhasil Disimpan');
     }
 
     /**
@@ -81,6 +85,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return back()->with('message','Data Berhasil dihapus');
     }
 }

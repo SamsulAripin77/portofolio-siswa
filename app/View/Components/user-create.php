@@ -4,17 +4,16 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class button extends Component
+class user-create extends Component
 {
-    public $field;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($field = 'submit')
+    public function __construct()
     {
-        $this->field = $field;
+        //
     }
 
     /**
@@ -24,6 +23,6 @@ class button extends Component
      */
     public function render()
     {
-        return view('components.button');
+        return view('components.user-create');
     }
 }

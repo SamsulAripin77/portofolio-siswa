@@ -20,5 +20,6 @@ class Profile extends Model
         'nilai_rata',
         'tahun_masuk',
         'tahun_keluar',
+        'user_id',
     ];
 }

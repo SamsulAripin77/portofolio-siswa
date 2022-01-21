@@ -65,14 +65,11 @@
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
-
-        <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="hp" value="{{ __('Hp') }}" />
-            <x-jet-input id="hp" type="text"  class="mt-1 block w-full" name="hp" wire:model.defer="state.hp" />
-            <x-jet-input-error for="hp" class="mt-2" />
+            <x-jet-label for='hp' value="{{ __('hp') }}" />
+            <x-jet-input id='hp' placeholder='hp' type="text"  class="mt-1 block w-full" name='hp' wire:model.defer="state.hp" />
+            <x-jet-input-error for= class="mt-2" />
         </div>
-
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for='url_linkedin' value="{{ __('url_linkedin') }}" />
             <x-jet-input id='url_linkedin' placeholder='url_linkedin' type="text"  class="mt-1 block w-full" name='url_linkedin' wire:model.defer="state.url_linkedin" />
@@ -92,68 +89,12 @@
             <x-jet-label for='about_me' value="{{ __('about_me') }}" />
             <x-jet-input id='about_me' placeholder='about_me' type="text"  class="mt-1 block w-full" name='about_me' wire:model.defer="state.about_me" />
             <x-jet-input-error for= class="mt-2" />
-        </div>
+        </div>       
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for='nama_sekolah' value="{{ __('nama_sekolah') }}" />
-            <x-jet-input id='nama_sekolah' placeholder='nama_sekolah' type="text"  class="mt-1 block w-full" name='nama_sekolah' wire:model.defer="state.nama_sekolah" />
+            <x-jet-label for='image' value="{{ __('photo') }}" />
+            <x-jet-input id='photo' placeholder='photo' type="file"  class="mt-1 block w-full" name='photo' wire:model.defer="state.photo" />
             <x-jet-input-error for= class="mt-2" />
-        </div>
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for='jurusan' value="{{ __('jurusan') }}" />
-            <x-jet-input id='jurusan' placeholder='jurusan' type="text"  class="mt-1 block w-full" name='jurusan' wire:model.defer="state.jurusan" />
-            <x-jet-input-error for= class="mt-2" />
-        </div>
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for='nilai_rata' value="{{ __('nilai_rata') }}" />
-            <x-jet-input id='nilai_rata' placeholder='nilai_rata' type="text"  class="mt-1 block w-full" name='nilai_rata' wire:model.defer="state.nilai_rata" />
-            <x-jet-input-error for= class="mt-2" />
-        </div>
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for='tahun_masuk' value="{{ __('tahun_masuk') }}" />
-            <x-jet-input id='tahun_masuk' placeholder='tahun_masuk' type="text"  class="mt-1 block w-full" name='tahun_masuk' wire:model.defer="state.tahun_masuk" />
-            <x-jet-input-error for= class="mt-2" />
-        </div>
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for='tahun_keluar' value="{{ __('tahun_keluar') }}" />
-            <x-jet-input id='tahun_keluar' placeholder='tahun_keluar' type="text"  class="mt-1 block w-full" name='tahun_keluar' wire:model.defer="state.tahun_keluar" />
-            <x-jet-input-error for= class="mt-2" />
-        </div>
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-        
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        </div>  
     </x-slot>
 
     <x-slot name="actions">

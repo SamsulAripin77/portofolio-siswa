@@ -2,15 +2,21 @@
 
 namespace App\Actions\Fortify;
 
+
 use App\Models\Profile;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
 
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 {
+
+  
+
     /**
      * Validate and update the given user's profile information.
      *
@@ -46,11 +52,6 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'uname_linkedin' => $input['uname_linkedin'],
                 'address' => $input['address'],
                 'about_me' => $input['about_me'],
-                'nama_sekolah' => $input['nama_sekolah'],
-                'jurusan' => $input['jurusan'],
-                'nilai_rata' => $input['nilai_rata'],
-                'tahun_masuk' => $input['tahun_masuk'],
-                'tahun_keluar' => $input['tahun_keluar'],
             ];
             if ($userProfile->profile == null ){
                 $userProfile->profile()->save(new Profile($profile));
@@ -87,5 +88,19 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         ])->save();
 
         $user->sendEmailVerificationNotification();
+    }
+
+    protected function uploadCover($file) {
+        $cover = null;
+        if($file){
+            $dt = Carbon::now();
+            $acak = $file->getClientOriginalExtension();
+            $fileName = rand(111111, 999999) 
+                        . '-' . $dt->format('Y-m-d-H-i-s')
+                        . '-.' . $acak;
+            $file->move('images', $fileName);
+            $cover = $fileName;
+        }
+        return $cover;
     }
 }
