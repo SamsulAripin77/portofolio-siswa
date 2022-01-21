@@ -4,7 +4,7 @@
             <h2>Daftar User</h2>
         </h2>
     </x-slot>
-    <div class="py-2">
+    <div class="py-2 text-left">
         <x-jet-button class="bg-green-600" @click="showModal1 = true">Tambah Data</x-jet-button>
     </div>
     <div class="flex justify-center rounded-lg">
@@ -29,12 +29,12 @@
             </thead>
             <tbody class="bg-gray-50">
                 @foreach ($users as $item)
-                <tr class="py-3">
+                <tr class="py-3 text-center">
                     <td class="px-2 py-3">
                         {{$item->id ?? ''}}
                     </td>
                     <td>
-                        <img class="w-10 h-10 shadow-md rounded-full border border-white border-2" src="{{$item->profile_photo_url}}" alt="Avatar" srcset="">
+                        <img class="w-10 h-10 shadow-md rounded-full border border-gray-300 border-2" src="{{$item->profile_photo_url}}" alt="Avatar" srcset="">
                     </td>
                     <td class="px-2 py-3">
                         {{$item->name ?? ''}}
@@ -121,3 +121,5 @@
     }
   
 </script>
+
+

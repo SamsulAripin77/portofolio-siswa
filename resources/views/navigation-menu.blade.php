@@ -17,7 +17,7 @@
                     </x-jet-nav-link>
                     <ul class="flex items-center">
                         <li class="px-3 py-5  rounded-3xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('users')}}">Siswa</a></li>
-                        <li class="px-3 py-5  rounded-3xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="#">Menu</a></li>
+                        <li class="px-3 py-5  rounded-3xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('skills.index')}}">Skills</a></li>
                         <li class="px-3 py-5  rounded-3xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="#">Menu</a></li>
                     </ul>
                 </div>

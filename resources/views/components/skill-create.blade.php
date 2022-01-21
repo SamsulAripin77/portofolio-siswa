@@ -1,0 +1,1 @@
+<x-input field="skill" lable="Skill"/>

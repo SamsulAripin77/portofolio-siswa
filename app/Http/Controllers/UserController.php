@@ -20,7 +20,6 @@ class UserController extends Controller
     public function index()
     {
         $users = User::with(['profile'])->get();
-        
         return view('admin.users.index',compact('users'));
     }
 
@@ -32,7 +31,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
+        $user = new User(['password' => bcrypt('secret123')]);
         $this->insert($user, $request);
         return back()->with('message','Data Berhasil Disimpan');
     }

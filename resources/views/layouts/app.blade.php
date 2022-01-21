@@ -36,8 +36,8 @@
             @endif
 
             <!-- Page Content -->
-            <main>
-                <div class="px-8 py-3 m-8 bg-white shadow-2xl rounded-3xl">
+            <main class="text-center">
+                <div class="px-8 py-3 m-8 bg-white shadow-2xl rounded-3xl inline-block">
                     {{ $slot }}
                 </div>
             </main> 
