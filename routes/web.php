@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\HobyController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -31,11 +32,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::delete('/users/{id}', [UserController::class,'destroy'])->name('users.delete');
     Route::put('/users/{id}', [UserController::class,'update'])->name('users.update');
 
-    // Route::get('/skills', [SkillController::class,'index'])->name('skills');
-    // Route::post('/skills', [SkillController::class,'store'])->name('skills');
-    // Route::delete('/skills/{id}', [SkillController::class,'destroy'])->name('skills.delete');
-    // Route::put('/skills/{id}', [SkillController::class,'update'])->name('skills.update');
     Route::resource('/skills',SkillController::class);
+    Route::resource('/hobbies',HobyController::class);
+
 
     Route::get('/',[HomeController::class,'index'])->name('home');
 });

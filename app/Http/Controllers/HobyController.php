@@ -3,28 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hoby;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HobyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        
+        $hobies = User::find(Auth::id())->hobies;
+        if(Auth::user()->isAdmin()){
+            $hobies = Hoby::all();
+        }
+        
+        return view('admin.index-hoby',compact('hobies'));
     }
 
     /**
@@ -35,51 +28,37 @@ class HobyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::find(Auth::id());
+        $user->hobies()->save(new Hoby($request->all()));
+        return back()->with('message','Data Berhasil Disimpan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Hoby  $hoby
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Hoby $hoby)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Hoby  $hoby
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Hoby $hoby)
-    {
-        //
-    }
-
+   
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Hoby  $hoby
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hoby $hoby)
+    public function update(Request $request, $id)
     {
-        //
+        $hoby = Hoby::find($id);
+        $hoby->update($request->all());
+        
+        return back()->with('messag','Data Berhasil Disimpan');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Hoby  $hoby
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hoby $hoby)
+    public function destroy($id)
     {
-        //
+        $hoby = Hoby::find($id);
+        $hoby->delete();
+        return back()->with('message','Data Berhasil Dihapus');
     }
 }

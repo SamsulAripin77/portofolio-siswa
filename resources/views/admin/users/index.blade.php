@@ -11,20 +11,20 @@
         <table style="margin: 30px 0 rounded">
             <thead>
                 <tr class="text-center">
-                    <x-td>No</x-td>
-                    <x-td>Avatar</x-td>
-                    <x-td>Name</x-td>
-                    <x-td>Email</x-td>
-                    <x-td>Telp</x-td>
-                    <x-td>username linkedin</x-td>
-                    <x-td>address</x-td>
-                    <x-td>about</x-td>
-                    <x-td>nama sekolah</x-td>
-                    <x-td>jurusan</x-td>
-                    <x-td>nilai rata-rata</x-td>
-                    <x-td>tahun masuk</x-td>
-                    <x-td>tahun keluar</x-td>
-                    <x-td>#</x-td>
+                    <x-th>No</x-th>
+                    <x-th>Avatar</x-th>
+                    <x-th>Name</x-th>
+                    <x-th>Email</x-th>
+                    <x-th>Telp</x-th>
+                    <x-th>username linkedin</x-th>
+                    <x-th>address</x-th>
+                    <x-th>about</x-th>
+                    <x-th>nama sekolah</x-th>
+                    <x-th>jurusan</x-th>
+                    <x-th>nilai rata-rata</x-th>
+                    <x-th>tahun masuk</x-th>
+                    <x-th>tahun keluar</x-th>
+                    <x-th>#</x-th>
                 </tr>
             </thead>
             <tbody class="bg-gray-50">
@@ -34,7 +34,7 @@
                         {{$item->id ?? ''}}
                     </td>
                     <td>
-                        <img class="w-10 h-10 shadow-md rounded-full border border-gray-300 border-2" src="{{$item->profile_photo_url}}" alt="Avatar" srcset="">
+                        <img class="w-10 h-10 shadow-md rounded-full border border-gray-300 border-2" src="{{$item->profile_photo_url}}" alt="Av" srcset="">
                     </td>
                     <td class="px-2 py-3">
                         {{$item->name ?? ''}}
