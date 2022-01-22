@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HobyController;
@@ -38,6 +39,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/hobbies',HobyController::class);
     Route::resource('/organizations',OrganizationController::class);
     Route::resource('/experiences',ExperienceController::class);
+    Route::resource('/achivements',AchievementController::class);
+
 
 
 

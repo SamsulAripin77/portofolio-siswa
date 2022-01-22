@@ -85,7 +85,7 @@ class User extends Authenticatable
     }
 
     public function achivements () {
-       return $this->hasMany(Achivement::class);
+       return $this->hasMany(Achievement::class);
     }
     
     public function creations () {
