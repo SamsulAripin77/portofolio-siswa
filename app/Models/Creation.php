@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Creation extends Model
 {
     use HasFactory;
+
+    protected $table = 'creaations';
+
+    protected $fillable = [
+        'user_id',
+        'title',
+        'description',
+        'image',
+    ];
+
+    public function user () {
+       return $this->belongsTo(User::class);
+    }
 }

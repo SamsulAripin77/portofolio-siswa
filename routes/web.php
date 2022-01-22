@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\CreationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HobyController;
 use App\Http\Controllers\OrganizationController;
@@ -40,6 +41,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/organizations',OrganizationController::class);
     Route::resource('/experiences',ExperienceController::class);
     Route::resource('/achivements',AchievementController::class);
+    Route::resource('/creations',CreationController::class);
+
 
 
 

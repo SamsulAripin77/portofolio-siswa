@@ -22,6 +22,8 @@
                         <li class="px-3 py-5  rounded-3xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('organizations.index')}}">Organisasi</a></li>
                         <li class="px-3 py-5  rounded-3xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('experiences.index')}}">Kepanitiaan</a></li>
                         <li class="px-3 py-5  rounded-3xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('achivements.index')}}">Penghargaan</a></li>
+                        <li class="px-3 py-5  rounded-3xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('creations.index')}}">Karya</a></li>
+
 
 
 
