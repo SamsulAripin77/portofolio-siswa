@@ -6,8 +6,10 @@ use App\Http\Controllers\CreationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HobyController;
 use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\SertificationController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserController;
+use App\Models\Sertification;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +44,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/experiences',ExperienceController::class);
     Route::resource('/achivements',AchievementController::class);
     Route::resource('/creations',CreationController::class);
+    Route::resource('/sertifications',SertificationController::class);
+
 
 
 
