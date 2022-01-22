@@ -2,29 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Work;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WorkController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        
+        $works = User::find(Auth::id())->works;
+        if(Auth::user()->isAdmin()){
+            $works = Work::all();
+        }
+        
+        return view('admin.index-work',compact('works'));
     }
 
     /**
@@ -35,51 +28,37 @@ class WorkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::find(Auth::id());
+        $user->works()->save(new Work($request->all()));
+        return back()->with('message','Data Berhasil Disimpan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Work  $work
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Work $work)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Work  $work
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Work $work)
-    {
-        //
-    }
-
+   
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Work  $work
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Work $work)
+    public function update(Request $request, $id)
     {
-        //
+        $work = Work::find($id);
+        $work->update($request->all());
+        
+        return back()->with('messag','Data Berhasil Disimpan');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Work  $work
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Work $work)
+    public function destroy($id)
     {
-        //
+        $work = Work::find($id);
+        $work->delete();
+        return back()->with('message','Data Berhasil Dihapus');
     }
 }
