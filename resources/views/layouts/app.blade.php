@@ -37,7 +37,7 @@
 
             <!-- Page Content -->
             <main class="text-center">
-                <div class="px-8 py-3 m-8 bg-white shadow-2xl rounded-3xl inline-block">
+                <div class="p-8 m-8 bg-white shadow-lg rounded-lg inline-block">
                     {{ $slot }}
                 </div>
             </main> 

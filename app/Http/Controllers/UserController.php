@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PortofolioExport;
 use App\Http\Controllers\Traits\InsertUserTrait;
 use App\Models\Profile;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+// use Barryvdh\DomPDF\PDF; 
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Excel as ExcelExcel;
+use Maatwebsite\Excel\Facades\Excel;
+use Spatie\Browsershot\Browsershot;
+use PDF;
 
 class UserController extends Controller
 {
@@ -87,5 +94,17 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
         return back()->with('message','Data Berhasil dihapus');
+    }
+
+    public function portofolio (Request $request) {
+        $user = User::find(Auth::id());
+        // $content =  view('dashboard', compact('user'))->render();
+        // $iflename = 'porotofolio.pdf';
+        // $path = storage_path() . '/app/public/' . $iflename;
+
+        return response()->stream(function () use ($user) {
+            echo $user->pdf();
+        }, 200, ['Content-Type' => 'application/pdf']);
+        
     }
 }

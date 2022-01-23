@@ -18,7 +18,6 @@
                     <x-th>Telp</x-th>
                     <x-th>username linkedin</x-th>
                     <x-th>address</x-th>
-                    <x-th>about</x-th>
                     <x-th>nama sekolah</x-th>
                     <x-th>jurusan</x-th>
                     <x-th>nilai rata-rata</x-th>
@@ -46,7 +45,6 @@
                     <td> {{$item->profile->hp ?? '' }} </td>
                     <td> {{$item->profile->uname_linkedin ?? '' }} </td>
                     <td> {{$item->profile->address ?? '' }} </td>
-                    <td> {{$item->profile->about_me ?? '' }} </td>
                     <td> {{$item->profile->nama_sekolah ?? '' }} </td>
                     <td> {{$item->profile->jurusan ?? '' }} </td>
                     <td> {{$item->profile->nilai_rata ?? '' }} </td>

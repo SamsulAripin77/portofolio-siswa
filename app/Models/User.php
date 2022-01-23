@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
+use Spatie\Browsershot\Browsershot;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -98,5 +99,13 @@ class User extends Authenticatable
 
     public function isAdmin () {
        return $this->role === 'admin';
+    }
+
+    public function pdf () {
+      $content =  view('folio', ['user' => $this])->render();
+      return Browsershot::html($content)->margins(18, 18, 24, 18)
+      ->format('A4')
+      ->showBackground()
+      ->pdf();
     }
 }

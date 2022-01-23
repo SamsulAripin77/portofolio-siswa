@@ -16,9 +16,11 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                     <ul class="flex items-center">
-                        <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('users')}}">Siswa</a></li>
+                        @if (Auth::user()->isAdmin())
+                            <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('users')}}">Siswa</a></li>
+                        @endif
                         <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('skills.index')}}">Skills</a></li>
-                        <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('hobbies.index')}}">Hobi</a></li>
+                        {{-- <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('hobbies.index')}}">Hobi</a></li> --}}
                         <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('organizations.index')}}">Organisasi</a></li>
                         <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('experiences.index')}}">Kepanitiaan</a></li>
                         <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('achivements.index')}}">Penghargaan</a></li>

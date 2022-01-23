@@ -29,7 +29,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
+            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:6144'],
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -54,7 +54,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'about_me' => $input['about_me'],
             ];
             if ($userProfile->profile == null ){
-                $userProfile->profile()->save(new Profile($profile));
+                $userProfile->profile->save(new Profile($profile));
             }else {
                 $userProfile->profile->update($profile);
             }

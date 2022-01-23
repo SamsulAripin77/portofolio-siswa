@@ -3,6 +3,7 @@
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\CreationController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HobyController;
 use App\Http\Controllers\OrganizationController;
@@ -25,15 +26,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::get('/user/portofolio', [UserController::class,'portofolio'])->name('portofolio');
     Route::get('/users', [UserController::class,'index'])->name('users');
     Route::post('/users', [UserController::class,'store'])->name('users');
     Route::delete('/users/{id}', [UserController::class,'destroy'])->name('users.delete');
@@ -46,7 +45,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/achivements',AchievementController::class);
     Route::resource('/creations',CreationController::class);
     Route::resource('/sertifications',SertificationController::class);
-    Route::resource('/works',WorkController::class);
+    Route::resource('/works',WorkController::class); 
+
+    
 
 
 
