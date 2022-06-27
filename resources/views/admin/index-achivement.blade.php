@@ -29,8 +29,8 @@
                     </x-td>
                     <x-td> {{$item->title ?? '' }} </x-td>
                     <x-td> {{$item->description ?? '' }} </x-td>
-                    <x-td> <img class="w-20 h-20 obejct-cover object-center rounded-2xl shadow-lg"
-                            src="{{asset('images/' . $item->image)}}" alt="Img" srcset="">
+                    <x-td> 
+                        <a href="{{asset('images/' . $item->image)}}" data-fancybox>File</a>
                     </x-td>
 
                     @if (Auth::user()->isAdmin())

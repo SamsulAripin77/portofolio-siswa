@@ -26,7 +26,6 @@ class CreateProfilesTable extends Migration
             $table->string('tahun_masuk')->nullable();
             $table->string('tahun_keluar')->nullable();
             $table->bigInteger('user_id')->nullable();
-
             $table->timestamps();
         });
     }

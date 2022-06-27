@@ -10,7 +10,9 @@
     <meta name="keywords" content="keywords,here">
 
     <!-- Styles -->
+    <!-- FANCYBOX -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
 
     @livewireStyles
 
@@ -154,6 +156,7 @@
             @endif
             @yield('content')
     </main>
+    <!-- FACNY JS -->
     @stack('scripts')
     <script>
         /*Toggle dropdown list*/

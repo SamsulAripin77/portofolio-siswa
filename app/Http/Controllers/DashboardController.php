@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
 {
@@ -16,7 +18,11 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $user = User::find(Auth::id());
-        return view('dashboard', compact('user'));
+        try {
+            $user = User::find(Auth::id());
+            return view('dashboard', compact('user'));
+        }catch (Exception $e){
+            Log::channel('app')->error(['error' => $e->getMessage()]);
+        }
     }
 }

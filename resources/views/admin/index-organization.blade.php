@@ -33,7 +33,7 @@
                     <x-td> {{$item->positon ?? ''}}</x-td>
                     <x-td> {{$item->thn_mulai ?? ''}}</x-td>
                     <x-td> {{$item->thn_akhir ?? ''}} </x-td>
-                    <x-td> <img class="w-20 h-20 obejct-cover object-center rounded-2xl shadow-lg" src="{{asset('images/' . $item->image)}}" alt="Img" srcset=""> </x-td>
+                    <x-td> <a href="{{asset('images/' . $item->image)}}" data-fancybox>File</a> </x-td>
                     @if (Auth::user()->isAdmin())
                     <x-td>
                         {{

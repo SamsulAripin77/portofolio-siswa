@@ -25,13 +25,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
-
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::get('/', DashboardController::class)->name('dashboard');
     Route::get('/user/portofolio', [UserController::class,'portofolio'])->name('portofolio');
     Route::get('/users', [UserController::class,'index'])->name('users');
     Route::post('/users', [UserController::class,'store'])->name('users');

@@ -16,8 +16,6 @@
                     <x-th>Name</x-th>
                     <x-th>Email</x-th>
                     <x-th>Telp</x-th>
-                    <x-th>username linkedin</x-th>
-                    <x-th>address</x-th>
                     <x-th>nama sekolah</x-th>
                     <x-th>jurusan</x-th>
                     <x-th>nilai rata-rata</x-th>
@@ -42,14 +40,12 @@
                         {{$item->email ?? ''}}
                     </td>
                     </td>
-                    <td> {{$item->profile->hp ?? '' }} </td>
-                    <td> {{$item->profile->uname_linkedin ?? '' }} </td>
-                    <td> {{$item->profile->address ?? '' }} </td>
-                    <td> {{$item->profile->nama_sekolah ?? '' }} </td>
-                    <td> {{$item->profile->jurusan ?? '' }} </td>
-                    <td> {{$item->profile->nilai_rata ?? '' }} </td>
-                    <td> {{$item->profile->tahun_masuk ?? '' }} </td>
-                    <td> {{$item->profile->tahun_keluar ?? '' }} </td>
+                    <td class="px-2 py-3"> {{$item->profile->hp ?? '' }} </td>
+                    <td class="px-2 py-3"> {{$item->profile->nama_sekolah ?? '' }} </td>
+                    <td class="px-2 py-3"> {{$item->profile->jurusan ?? '' }} </td>
+                    <td class="px-2 py-3"> {{$item->profile->nilai_rata ?? '' }} </td>
+                    <td class="px-2 py-3"> {{$item->profile->tahun_masuk ?? '' }} </td>
+                    <td class="px-2 py-3"> {{$item->profile->tahun_keluar ?? '' }} </td>
                     <td class="px-2 py-3 flex gap-2">
                         <a href="">
                             <x-button class="bg-yellow-600 text-gray-800" @click="showModal2 = true" field="button"

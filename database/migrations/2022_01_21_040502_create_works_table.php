@@ -19,6 +19,7 @@ class CreateWorksTable extends Migration
             $table->string('company')->nullable()->default(null);
             $table->string('tgl_start')->nullable()->default(null);
             $table->string('tgl_end')->nullable()->default(null);
+            $table->string('validation')->nullable()->default(false);
             $table->bigInteger('user_id');
             $table->timestamps();
         });

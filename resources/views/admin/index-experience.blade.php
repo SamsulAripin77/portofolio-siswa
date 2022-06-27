@@ -36,7 +36,7 @@
                     <x-td> {{$item->description ?? '' }} </x-td>
                     <x-td> {{$item->tgl ?? '' }} </x-td>
                     <x-td> 
-                        <img class="w-20 h-20 obejct-cover object-center rounded-2xl shadow-lg" src="{{asset('images/' . $item->image)}}" alt="Img" srcset="">
+                        <a href="{{asset('images/' . $item->image)}}" data-fancybox>File</a>
                     </x-td>
                     @if (Auth::user()->isAdmin())
                     <x-td>
@@ -69,7 +69,7 @@
 
     <x-modal.create>
         <x-slot name="header">
-            Buat Hobi
+            Buat Data
         </x-slot>
         <form action="{{route('experiences.store')}}" method="post" enctype="multipart/form-data">
             @csrf
@@ -82,7 +82,7 @@
 
     <x-modal.edit>
         <x-slot name="header">
-            Edit Hobi
+            Edit Data
         </x-slot>
         <div id="modal-edit">
             <form action="" method="post" enctype="multipart/form-data">

@@ -17,7 +17,7 @@
                     Education
                 </h2>
                 <div class="text-left px-2 mb-2">
-                    <h2 class="text-gray-800 text-sm font-bold">{{$user->profile->tahun_masuk ?? ''}}-{{$user->profile->tahun_keluar ?? '' }}</h2>
+                    <h2 class="text-gray-800 text-sm font-bold"> {{$user->profile->tahun_masuk ?? ''}} - {{$user->profile->tahun_keluar ?? '' }}</h2>
                     <h2 class="text-gray-800 text-sm font-semibold">{{$user->profile->nama_sekolah ?? '' }}</h2>
                     <p class="text-justify text-gray-800 text-sm">
                         {{$user->profile->jurusan ?? ''}}
@@ -46,12 +46,6 @@
                     <h2 class="text-gray-900 text-sm font-bold">Phone :</h2>
                     <h2 class="text-gray-600 text-sm font-bold">{{$user->profile->hp ?? '' }}</h2>
                 </div>
-                <div class="text-left px-2 mb-2">
-                    <h2 class="text-gray-900 text-sm font-bold">Linkedin :</h2>
-                    <h2 class="text-gray-600 text-sm font-bold"><a href="{{$user->profile->url_linkedin ?? ''}}">
-                        {{$user->profile->uname_linkedin ?? ''}}
-                    </a></h2>
-                </div>
             </div>
         </div>
         <div class="w-2/3 px-8">
@@ -62,7 +56,7 @@
                 @foreach ($user->works as $item)
                 <div class="text-left mb-2">
                     <h2 class="text-sm font-bold">{{$item->position ?? ''}}</h2>
-                    <h2 class="text-gray-800 text-sm font-light italic">{{$item->company ?? ''}} . <span>{{$item->tgl_start}}-{{$item->tgl_end}}</span></h2>
+                    <h2 class="text-gray-800 text-sm font-light italic">{{$item->company ?? ''}} . <span>{{$item->tgl_start }} s/d {{$item->tgl_end}}</span></h2>
                 </div>
                 @endforeach
             </div>

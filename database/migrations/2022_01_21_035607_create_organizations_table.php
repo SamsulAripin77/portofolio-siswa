@@ -20,6 +20,7 @@ class CreateOrganizationsTable extends Migration
             $table->string('position')->nullable()->default(null);
             $table->string('thn_mulai')->nullable()->default(null);
             $table->string('thn_akhir')->nullable()->default(null);
+            $table->string('validation')->nullable()->default(false);
             $table->string('image')->nullable()->default(null);
             $table->timestamps();
         });
