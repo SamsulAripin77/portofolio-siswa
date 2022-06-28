@@ -20,7 +20,6 @@
                             <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('users')}}">Siswa</a></li>
                         @endif
                         <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('skills.index')}}">Skills</a></li>
-                        {{-- <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('hobbies.index')}}">Hobi</a></li> --}}
                         <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('organizations.index')}}">Organisasi</a></li>
                         <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('experiences.index')}}">Kepanitiaan</a></li>
                         <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('achivements.index')}}">Penghargaan</a></li>
@@ -68,6 +67,8 @@
                                             {{ __('Create New Team') }}
                                         </x-jet-dropdown-link>
                                     @endcan
+
+
 
                                     <div class="border-t border-gray-100"></div>
 
@@ -196,6 +197,19 @@
                         {{ __('Log Out') }}
                     </x-jet-responsive-nav-link>
                 </form>
+                <div class="pt-4 pb-1 border-t border-gray-200"></div>
+                @if (Auth::user()->isAdmin())
+                    <x-jet-responsive-nav-link class="" href="{{route('users')}}">Siswa</x-jet-responsive-nav-link>
+                @endif
+                <x-jet-responsive-nav-link href="{{route('organizations.index')}}">Organisasi</x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{route('experiences.index')}}">Kepanitiaan</x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{route('achivements.index')}}">Penghargaan</x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{route('creations.index')}}">Karya</x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{route('sertifications.index')}}">Sertifikasi</x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{route('works.index')}}">Internship</x-jet-responsive-nav-link>
+                @if (! Auth::user()->isAdmin())
+                <x-jet-responsive-nav-link class="" href="{{route('portofolio')}}" target="_blank">My Portofolio</x-jet-responsive-nav-link>
+                @endif
 
                 <!-- Team Management -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
