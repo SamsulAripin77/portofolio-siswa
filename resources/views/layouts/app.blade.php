@@ -37,7 +37,7 @@
             @endif
 
             <!-- Page Content -->
-            <main class="text-center">
+            <main class="text-center overflow-x-scroll">
                 <div class="p-8 m-8 bg-white shadow-lg rounded-lg inline-block">
                     {{ $slot }}
                 </div>

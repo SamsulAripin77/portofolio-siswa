@@ -49,10 +49,11 @@ class WorkController extends Controller
         return back()->with('messag','Data Berhasil Disimpan');
     }
 
-    public function validation(Work $sertification, $validation){
+    public function validation(Work $work, $validation){
         $val = $validation == '1' ? false : true;
-        $sertification['validation'] = $val;
-        $sertification->save();
+        $work['user_id'] = Auth::id();
+        $work['validation'] = $val;
+        $work->save();
         return back()->with('message','Data Berhasil Disimpan');
     }
 

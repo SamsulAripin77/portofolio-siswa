@@ -53,7 +53,7 @@
                 <h2 class="text-lg font-bold mb-2 text-green-500">
                     Works/Internships
                 </h2>
-                @foreach ($user->works as $item)
+                @foreach ($user->isValidWorks as $item)
                 <div class="text-left mb-2">
                     <h2 class="text-sm font-bold">{{$item->position ?? ''}}</h2>
                     <h2 class="text-gray-800 text-sm font-light italic">{{$item->company ?? ''}} . <span>{{$item->tgl_start }} s/d {{$item->tgl_end}}</span></h2>
@@ -64,7 +64,7 @@
                 <h2 class="text-lg font-bold mb-2 text-green-500">
                     Organizations
                 </h2>
-                @foreach ($user->organizations as $item)
+                @foreach ($user->isValidOrganization as $item)
                     <div class="text-left mb-2">
                         <h2 class="text-sm font-bold mb-1">{{$item->name ?? ''}} ( {{$item->thn_mulai ?? ''}}-{{$item->thn_akhir ?? ''}} )</h2>
                         <h2 class="text-gray-800 text-sm font-light italic mb-1">{{$item->position ?? ''}}</h2>
@@ -75,7 +75,18 @@
                 <h2 class="text-lg font-bold mb-2 text-green-500">
                     Sertifications
                 </h2>
-                @foreach ($user->sertifications as $item)
+                @foreach ($user->isValidSertifications as $item)
+                    <div class="text-left mb-2">
+                        <h2 class="text-sm font-bold mb-1">{{$item->title ?? ''}}</h2>
+                        <h2 class="text-gray-800 text-sm font-light italic mb-1">{{$item->description ?? ''}}</h2>
+                    </div>
+                @endforeach
+            </div>
+            <div class="text-left py-2 mb-2">
+                <h2 class="text-lg font-bold mb-2 text-green-500">
+                    Experience
+                </h2>
+                @foreach ($user->isValidExperiences as $item)
                     <div class="text-left mb-2">
                         <h2 class="text-sm font-bold mb-1">{{$item->title ?? ''}}</h2>
                         <h2 class="text-gray-800 text-sm font-light italic mb-1">{{$item->description ?? ''}}</h2>

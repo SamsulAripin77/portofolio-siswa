@@ -77,24 +77,48 @@ class User extends Authenticatable
        return $this->hasMany(Organization::class);
     }
 
+    public function isValidOrganization(){
+      return $this->organizations()->where('validation', true);
+    }
+
     public function experiences () {
        return $this->hasMany(Experience::class);
+    }
+
+    public function isValidExperiences(){
+      return $this->experiences()->where('validation', true);
     }
 
     public function works () {
        return $this->hasMany(Work::class);
     }
 
+    public function isValidWorks(){
+      return $this->works()->where('validation', true);
+    }
+
     public function achivements () {
        return $this->hasMany(Achievement::class);
+    }
+
+    public function isValidAchivements(){
+      return $this->achivements()->where('validation', true);
     }
     
     public function creations () {
        return $this->hasMany(Creation::class);
     }
 
+    public function isValidCreations(){
+      return $this->creations()->where('validation', true);
+    }
+
     public function sertifications () {
        return $this->hasMany(Sertification::class);
+    }
+
+    public function isValidSertifications(){
+      return $this->sertifications()->where('validation', true);
     }
 
     public function isAdmin () {
