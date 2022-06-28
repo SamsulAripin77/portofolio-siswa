@@ -5,7 +5,9 @@
         </h2>
     </x-slot>
     <div class="py-2 text-left">
+        @if (! Auth::user()->isAdmin())
         <x-jet-button class="bg-green-600" @click="showModal1 = true">Tambah Data</x-jet-button>
+        @endif
     </div>
     <div class="flex justify-center rounded-lg">
         <table style="margin: 30px 0 rounded">
@@ -41,6 +43,18 @@
                     </x-td>
                     @endif
                     <td class="px-2 py-3 flex gap-2">
+                        @if (Auth::user()->isAdmin())
+                        <a href="{{route('achivements.validation', [$item,$item->validation])}}">
+                            <x-button class="bg-green-600 text-white" type="submit" field="button"
+                                id="btn-edit">
+                                @if ($item->validation)
+                                <i class="fas fa-thumbs-up text-white"></i>
+                                @else
+                                <i class="fas fa-thumbs-down text-white"></i>
+                                @endif
+                            </x-button>
+                        </a>
+                        @endif
                         <a href="">
                             <x-button class="bg-yellow-600 text-gray-800" @click="showModal2 = true" field="button"
                                 id="btn-edit" onclick="editMe(event, {{$item}})">

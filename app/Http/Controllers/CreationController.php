@@ -56,6 +56,13 @@ class CreationController extends Controller
         return back()->with('message', 'Data Berhasil Disimpan');
     }
 
+    public function validation(Creation $creation, $validation){
+        $val = $validation == '1' ? false : true;
+        $creation['validation'] = $val;
+        $creation->save();
+        return back()->with('message','Data Berhasil Disimpan');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

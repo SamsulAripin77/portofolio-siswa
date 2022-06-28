@@ -55,6 +55,13 @@ class SertificationController extends Controller
         return back()->with('message', 'Data Berhasil Disimpan');
     }
 
+    public function validation(Sertification $sertification, $validation){
+        $val = $validation == '1' ? false : true;
+        $sertification['validation'] = $val;
+        $sertification->save();
+        return back()->with('message','Data Berhasil Disimpan');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

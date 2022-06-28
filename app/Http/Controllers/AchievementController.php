@@ -55,6 +55,13 @@ class AchievementController extends Controller
         return back()->with('message', 'Data Berhasil Disimpan');
     }
 
+    public function validation(Achievement $achievement, $validation){
+        $val = $validation == '1' ? false : true;
+        $achievement['validation'] = $val;
+        $achievement->save();
+        return back()->with('message','Data Berhasil Disimpan');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

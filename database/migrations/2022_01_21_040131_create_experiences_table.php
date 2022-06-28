@@ -20,7 +20,7 @@ class CreateExperiencesTable extends Migration
             $table->string('position')->nullable()->default(null);
             $table->string('description')->nullable()->default(null);
             $table->string('tgl')->nullable()->default(null);
-            $table->string('validation')->nullable()->default(false);
+            $table->boolean('validation')->nullable()->default(false);
             $table->string('image')->nullable()->default(null);
             $table->timestamps();
         });

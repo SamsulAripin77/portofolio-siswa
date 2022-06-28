@@ -49,6 +49,13 @@ class WorkController extends Controller
         return back()->with('messag','Data Berhasil Disimpan');
     }
 
+    public function validation(Work $sertification, $validation){
+        $val = $validation == '1' ? false : true;
+        $sertification['validation'] = $val;
+        $sertification->save();
+        return back()->with('message','Data Berhasil Disimpan');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

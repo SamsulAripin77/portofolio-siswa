@@ -18,7 +18,7 @@ class CreateCreaationsTable extends Migration
             $table->bigInteger('user_id');
             $table->string('title')->nullable()->default(null);
             $table->string('description')->nullable()->default(null);
-            $table->string('validation')->nullable()->default(false);
+            $table->boolean('validation')->nullable()->default(false);
             $table->string('image')->nullable()->default(null);
             $table->timestamps();
         });

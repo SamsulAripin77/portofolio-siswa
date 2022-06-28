@@ -11,6 +11,7 @@ use App\Http\Controllers\SertificationController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkController;
+use App\Models\Organization;
 use App\Models\Sertification;
 use Illuminate\Support\Facades\Route;
 
@@ -36,11 +37,23 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::resource('/skills',SkillController::class);
     Route::resource('/hobbies',HobyController::class);
+
+    Route::get('/organizations/validation/{organization}/{validation}', [OrganizationController::class,'validation'])->name('organization.validation');
     Route::resource('/organizations',OrganizationController::class);
+
+    Route::get('/experiences/validation/{experience}/{validation}', [ExperienceController::class,'validation'])->name('experiences.validation');
     Route::resource('/experiences',ExperienceController::class);
+
+    Route::get('/achivements/validation/{achievement}/{validation}', [AchievementController::class,'validation'])->name('achivements.validation');
     Route::resource('/achivements',AchievementController::class);
+
+    Route::get('/creations/validation/{creation}/{validation}', [CreationController::class,'validation'])->name('creations.validation');
     Route::resource('/creations',CreationController::class);
+
+    Route::get('/sertifications/validation/{sertification}/{validation}', [SertificationController::class,'validation'])->name('sertifications.validation');
     Route::resource('/sertifications',SertificationController::class);
+    
+    Route::get('/works/validation/{work}/{validation}', [WorkController::class,'validation'])->name('works.validation');
     Route::resource('/works',WorkController::class); 
 
     

@@ -57,6 +57,13 @@ class OrganizationController extends Controller
         return back()->with('message','Data Berhasil Disimpan');
     }
 
+    public function validation(Organization $organization, $validation){
+        $val = $validation == '1' ? false : true;
+        $organization['validation'] = $val;
+        $organization->save();
+        return back()->with('message','Data Berhasil Disimpan');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
