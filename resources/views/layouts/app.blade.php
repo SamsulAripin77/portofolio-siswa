@@ -14,6 +14,8 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <meta name="theme-color" content="#6777ef" />
+        <link rel="manifest" href="{{ asset('./manifest.json') }}">
 
         @livewireStyles
 
@@ -48,5 +50,16 @@
         @stack('scripts')
 
         @livewireScripts
+        <script>
+            if('serviceWorker' in navigator){
+              window.addEventListener('load', function(){
+                navigator.serviceWorker.register('./sw.js').then(function(reg){
+                    console.log('Service Worker has been registerd for scope: ' + reg.scope)
+                })
+              })
+            }else{
+                console.log('service workker not working')
+            }
+        </script>
     </body>
 </html>
