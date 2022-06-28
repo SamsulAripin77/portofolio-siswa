@@ -14,13 +14,13 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <meta name="theme-color" content="#6777ef" />
-        <link rel="manifest" href="{{ asset('./manifest.json') }}">
-
+        
         @livewireStyles
-
+        
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <meta name="theme-color" content="#6777ef" />
+        <link rel="manifest" href="{{ asset('/manifest.json') }}">
     </head>
     <body class="font-sans antialiased" x-data="{ showModal1: false, showModal2: false }"
     :class="{'overflow-y-hidden': showModal1 | showModal2  }" >

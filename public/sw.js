@@ -3,7 +3,7 @@ self.addEventListener("install", function (event) {
 });
 
 var filesToCache = [
-    '/admin',
+    '/',
     '/offline.html',
     '/css/app.css',
     '/js/app.js',
@@ -28,11 +28,9 @@ var filesToCache = [
     '/images/icons/splash-2048x2732.png',
 ];
 
-var preLoad = function () {
-    return caches.open("offline").then(function (cache) {
-        // caching index and important routes
-        return cache.addAll(filesToCache);
-    });
+var preLoad = async function () {
+    const cache = await caches.open("offline");
+    return await cache.addAll(filesToCache);
 };
 
 self.addEventListener("fetch", function (event) {
