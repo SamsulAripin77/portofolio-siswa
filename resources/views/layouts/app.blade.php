@@ -40,7 +40,7 @@
 
             <!-- Page Content -->
             <main class="text-center overflow-x-scroll">
-                <div class="p-8 m-8 bg-white shadow-lg rounded-lg inline-block">
+                <div class="p-8 m-8 bg-white shadow-lg rounded-lg inline-block w-full" style="max-width: 800px;" >
                     {{ $slot }}
                 </div>
             </main> 

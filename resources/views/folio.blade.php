@@ -1975,7 +1975,7 @@ input::placeholder {
         <!-- Page Content -->
         <main class="text-center">
             <div class="p-8 m-8 bg-white shadow-lg rounded-lg inline-block">
-                <div class="max-w-3xl">
+                <div class="max-w-7xl">
                     <div class="flex flex-col items-center gap-y-3 max-w-7xl">
                         {{-- <img
                             class="w-28 h-28 border-2 border-gray-400 rounded-full sahdow-lg object-cover object-center"

@@ -2,7 +2,7 @@
     <img class="w-28 h-28 border-2 border-gray-400 rounded-full sahdow-lg object-cover object-center" src="{{Auth::user()->profile_photo_url ?? ''}}" alt="" srcset="">
     <h2 class="text-xl uppercase font-bold text-green-600">{{$user->name ?? ''}}</h2>
     <h2 class="text-md leading-relaxed uppercase font-light text-gray-900">Fresh Graduate</h2>
-    <div class="flex border-y-2 border-gray-300">
+    <div class="flex border-y-2 border-gray-300 w-full">
         <div class="w-1/3 border-r-2 border-gray-300">
             <div class="border-b-2 border-gray-300 text-left py-2">
                 <h2 class="text-md font-bold pl-2 pr-4 mb-2 text-green-500">

@@ -1,7 +1,7 @@
 {
     "name": "E-Portofolio",
     "short_name": "E-Portofolio",
-    "start_url": "/admin",
+    "start_url": "/",
     "background_color": "#0097e6",
     "description": "E-Portofolio Siswa",
     "display": "standalone",
