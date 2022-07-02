@@ -26,8 +26,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with(['profile'])->where('role','user')->get();
-        return view('admin.users.index',compact('users'));
+        $users = User::with(['profile'])->where('role', 'user')->get();
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -40,7 +40,7 @@ class UserController extends Controller
     {
         $user = new User(['password' => bcrypt($request->input('password'))]);
         $this->insert($user, $request);
-        return back()->with('message','Data Berhasil Disimpan');
+        return back()->with('message', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -80,7 +80,7 @@ class UserController extends Controller
         ]);
         $user = User::find($id);
         $this->insert($user, $request);
-        return back()->with('message','Data Berhasil Disimpan');
+        return back()->with('message', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -93,19 +93,20 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return back()->with('message','Data Berhasil dihapus');
+        return back()->with('message', 'Data Berhasil dihapus');
     }
 
-    public function portofolio (Request $request) {
+    public function portofolio(Request $request)
+    {
         $user = User::find(Auth::id());
         // $content =  view('dashboard', compact('user'))->render();
         // $iflename = 'porotofolio.pdf';
         // $path = storage_path() . '/app/public/' . $iflename;
 
+        return response()->stream(function () use ($user) {
+            echo $user->pdf();
+        }, 200, ['Content-Type' => 'application/pdf']);
+
         return view('folio', compact('user'));
-        // return response()->stream(function () use ($user) {
-        //     echo $user->pdf();
-        // }, 200, ['Content-Type' => 'application/pdf']);
-        
     }
 }
