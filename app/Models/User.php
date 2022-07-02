@@ -127,9 +127,8 @@ class User extends Authenticatable
 
     public function pdf () {
       $content =  view('folio', ['user' => $this])->render();
-      return Browsershot::html($content)->margins(18, 18, 24, 18)
-      ->format('A4')
-      ->showBackground()
+      return Browsershot::html($content)
+      ->format('A5')
       ->pdf();
     }
 }

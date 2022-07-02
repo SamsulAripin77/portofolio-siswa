@@ -4,13 +4,13 @@
             <h2>Daftar Sertifikasi</h2>
         </h2>
     </x-slot>
-    <div class="py-2 text-left">
+    <div class="py-2 text-right">
         @if (! Auth::user()->isAdmin())
             <x-jet-button class="bg-green-600" @click="showModal1 = true">Tambah Data</x-jet-button>
         @endif
     </div>
     <div class="flex justify-center rounded-lg">
-        <table style="margin: 30px 0 rounded">
+        <table class="w-full rounded">
             <thead>
                 <tr class="text-center">
                     <x-th>No</x-th>

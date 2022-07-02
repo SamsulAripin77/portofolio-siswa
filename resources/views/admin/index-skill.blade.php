@@ -5,12 +5,12 @@
         </h2>
     </x-slot>
     @if (! Auth::user()->isAdmin())
-    <div class="py-2 text-left">
+    <div class="py-2 text-right">
         <x-jet-button class="bg-green-600" @click="showModal1 = true">Tambah Data</x-jet-button>
     </div>
     @endif
     <div class="flex justify-center rounded-lg">
-        <table style="margin: 30px 0 rounded">
+        <table class="rounded w-full">
             <thead>
                 <tr class="text-center">
                     <x-th>No</x-th>

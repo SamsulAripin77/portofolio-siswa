@@ -10,7 +10,7 @@
         @endif
     </div>
     <div class="flex justify-center rounded-lg">
-        <table style="margin: 30px 0 rounded">
+        <table class="w-full rounded">
             <thead>
                 <tr class="text-center">
                     <x-th>No</x-th>
