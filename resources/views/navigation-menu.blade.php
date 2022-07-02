@@ -27,7 +27,7 @@
                         <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('sertifications.index')}}">Sertifikasi</a></li>
                         <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('works.index')}}">Internship</a></li>
                         @if (! Auth::user()->isAdmin())
-                        <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('portofolio')}}" target="_blank">My Portofolio</a></li>
+                        <li class="px-3 py-3 rounded-2xl text-sm hover:text-gray-800 hover:bg-gray-100"><a class="" href="{{route('portofolio')}}" >My Portofolio</a></li>
                         @endif
                     </ul>
                 </div>

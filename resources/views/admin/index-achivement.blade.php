@@ -4,7 +4,7 @@
             <h2>Daftar Penghargaan</h2>
         </h2>
     </x-slot>
-    <div class="py-2 text-left">
+    <div class="py-2 text-right">
         @if (! Auth::user()->isAdmin())
         <x-jet-button class="bg-green-600" @click="showModal1 = true">Tambah Data</x-jet-button>
         @endif
