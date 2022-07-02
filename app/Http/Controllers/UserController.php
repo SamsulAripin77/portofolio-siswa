@@ -102,9 +102,10 @@ class UserController extends Controller
         // $iflename = 'porotofolio.pdf';
         // $path = storage_path() . '/app/public/' . $iflename;
 
-        return response()->stream(function () use ($user) {
-            echo $user->pdf();
-        }, 200, ['Content-Type' => 'application/pdf']);
+        return view('folio', compact('user'));
+        // return response()->stream(function () use ($user) {
+        //     echo $user->pdf();
+        // }, 200, ['Content-Type' => 'application/pdf']);
         
     }
 }

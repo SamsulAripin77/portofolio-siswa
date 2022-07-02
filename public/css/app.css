@@ -1241,6 +1241,12 @@ select {
 .w-3 {
   width: 0.75rem;
 }
+.w-2\/5 {
+  width: 40%;
+}
+.w-3\/5 {
+  width: 60%;
+}
 .min-w-0 {
   min-width: 0px;
 }
