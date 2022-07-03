@@ -6,6 +6,7 @@
     </x-slot>
     <div class="py-4">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
+            <div class="flex pb-4 justify-end"><a href="{{route('users.portofolio')}}" target="_blank" class="px-4 py-2 text-gray-200 rounded-lg bg-green-600 text-lg font-bold">Print</a></div>
             <div class="bg-white overflow-hidden sm:rounded-lg">
                 <x-portofolio/>
             </div>

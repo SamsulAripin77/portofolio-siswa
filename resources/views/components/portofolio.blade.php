@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center gap-y-3 max-w-7xl">
+<div class="flex flex-col p-6 items-center gap-y-3 max-w-7xl">
     <img class="w-28 h-28 border-2 border-gray-400 rounded-full sahdow-lg object-cover object-center" src="{{Auth::user()->profile_photo_url ?? ''}}" alt="" srcset="">
     <h2 class="text-xl uppercase font-bold text-green-600">{{$user->name ?? ''}}</h2>
     <h2 class="text-md leading-relaxed uppercase font-light text-gray-900">Fresh Graduate</h2>

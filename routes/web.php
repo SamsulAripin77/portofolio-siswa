@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/users', [UserController::class,'store'])->name('users');
     Route::delete('/users/{id}', [UserController::class,'destroy'])->name('users.delete');
     Route::put('/users/{id}', [UserController::class,'update'])->name('users.update');
+    Route::get('/users/portofolio', [UserController::class,'portofolio'])->name('users.portofolio');
 
     Route::resource('/skills',SkillController::class);
     Route::resource('/hobbies',HobyController::class);
