@@ -55,7 +55,7 @@
                             </x-button>
                         </a>
                         @endif
-                        @if (! Auth::user()->isAdmin())
+                        @if (! Auth::user()->isAdmin() && $item->validation  != true)
                         <a href="">
                             <x-button class="bg-yellow-600 text-gray-800" @click="showModal2 = true" field="button"
                                 id="btn-edit" onclick="editMe(event, {{$item}})">

@@ -51,7 +51,6 @@ class WorkController extends Controller
 
     public function validation(Work $work, $validation){
         $val = $validation == '1' ? false : true;
-        $work['user_id'] = Auth::id();
         $work['validation'] = $val;
         $work->save();
         return back()->with('message','Data Berhasil Disimpan');

@@ -55,15 +55,13 @@
                             </x-button>
                         </a>
                         @endif
-                        @if (! Auth::user()->isAdmin())
-                        @if (! Auth::user()->isAdmin())
+                        @if (! Auth::user()->isAdmin() && $item->validation  != true)
                         <a href="">
                             <x-button class="bg-yellow-600 text-gray-800" @click="showModal2 = true" field="button"
                                 id="btn-edit" onclick="editMe(event, {{$item}})">
                                 <i class="fa fa-pen text-white"></i>
                             </x-button>
                         </a>
-                        @endif
                         @endif
                         <form action="{{route('creations.destroy', $item)}}" method="post"
                             onsubmit="return confirm('are you sure want to delete data')">
