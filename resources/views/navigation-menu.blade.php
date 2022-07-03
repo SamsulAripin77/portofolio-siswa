@@ -201,6 +201,7 @@
                 @if (Auth::user()->isAdmin())
                     <x-jet-responsive-nav-link class="" href="{{route('users')}}">Siswa</x-jet-responsive-nav-link>
                 @endif
+                <x-jet-responsive-nav-link href="{{route('skills.index')}}">Skill</x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{route('organizations.index')}}">Organisasi</x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{route('experiences.index')}}">Kepanitiaan</x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{route('achivements.index')}}">Penghargaan</x-jet-responsive-nav-link>
@@ -208,7 +209,7 @@
                 <x-jet-responsive-nav-link href="{{route('sertifications.index')}}">Sertifikasi</x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{route('works.index')}}">Internship</x-jet-responsive-nav-link>
                 @if (! Auth::user()->isAdmin())
-                <x-jet-responsive-nav-link class="" href="{{route('portofolio')}}" target="_blank">My Portofolio</x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link class="" href="{{route('portofolio')}}">My Portofolio</x-jet-responsive-nav-link>
                 @endif
 
                 <!-- Team Management -->

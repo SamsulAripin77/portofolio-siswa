@@ -3032,8 +3032,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 </head>
 
 <body class="font-sans antialiased text-center " style="padding: 0;">
-    <div class="p-8 bg-white bg-gray-100 rounded-lg inline-block" style="width: 100%; max-width:600px;">
-        <div class="">
+    <div class="p-2 lg:p-8 bg-white bg-gray-100 rounded-lg inline-block" style="width: 100%; max-width:600px;">
             <div class="flex flex-col items-center gap-y-3">
                 {{-- <img class="w-28 h-28 border-2 border-gray-400 rounded-full sahdow-lg object-cover object-center"
                     src="{{ $user->profile_photo_url ?? ''}}" alt="Ao" srcset="{{ $user->profile_photo_url ?? ''}}">
@@ -3137,7 +3136,6 @@ Ensure the default browser behavior of the `hidden` attribute.
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </body>
 
