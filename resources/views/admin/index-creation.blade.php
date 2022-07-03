@@ -4,15 +4,15 @@
             <h2>Daftar Karya</h2>
         </h2>
     </x-slot>
-    <div class="py-2 text-left">
+    <div class="py-2 text-right">
         @if (! Auth::user()->isAdmin())
         <x-jet-button class="bg-green-600" @click="showModal1 = true">Tambah Data</x-jet-button>
         @endif
     </div>
-    <div class="flex justify-center rounded-lg">
+    <div class="flex justify-center bg-white shadow-lg rounded-lg">
         <table class="w-full rounded">
             <thead>
-                <tr class="text-center">
+                <tr class="text-left">
                     <x-th>No</x-th>
                     <x-th>Nama</x-th>
                     <x-th>Keterangan</x-th>

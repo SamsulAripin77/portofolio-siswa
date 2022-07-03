@@ -28,10 +28,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/', DashboardController::class)->name('dashboard');
-
-    // Route::get('/user/portofolio', [UserController::class,'portofolio'])->name('portofolio');
-    Route::get('/user/portofolio', DashboardController::class)->name('portofolio');
+    Route::get('/',[DashboardController::class,'dashboard'])->name('home');
+    Route::get('/user/portofolio', [DashboardController::class,'portofolio'])->name('portofolio');
 
     Route::get('/users', [UserController::class,'index'])->name('users');
     Route::post('/users', [UserController::class,'store'])->name('users');
@@ -58,15 +56,4 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     
     Route::get('/works/validation/{work}/{validation}', [WorkController::class,'validation'])->name('works.validation');
     Route::resource('/works',WorkController::class); 
-
-    
-
-
-
-
-
-
-
-
-    Route::get('/',[HomeController::class,'index'])->name('home');
 });

@@ -9,10 +9,10 @@
             <x-jet-button class="bg-green-600" @click="showModal1 = true">Tambah Data</x-jet-button>
         @endif
     </div>
-    <div class="flex justify-center rounded-lg">
+    <div class="flex justify-center bg-white shadow-lg rounded-lg">
         <table class="w-full rounded">
             <thead>
-                <tr class="text-center">
+                <tr class="text-left">
                     <x-th>No</x-th>
                     <x-th>Acara</x-th>
                     <x-th>Jabatan</x-th>

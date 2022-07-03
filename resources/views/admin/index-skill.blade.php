@@ -9,10 +9,10 @@
         <x-jet-button class="bg-green-600" @click="showModal1 = true">Tambah Data</x-jet-button>
     </div>
     @endif
-    <div class="flex justify-center rounded-lg">
+    <div class="flex justify-center rounded-lg bg-white shadow-lg rounded-lg">
         <table class="rounded w-full">
             <thead>
-                <tr class="text-center">
+                <tr class="text-left">
                     <x-th>No</x-th>
                     <x-th>Skill</x-th>
                     @if (Auth::user()->isAdmin())
