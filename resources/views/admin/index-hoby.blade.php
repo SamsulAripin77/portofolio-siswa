@@ -13,10 +13,10 @@
         <table style="margin: 30px 0 rounded">
             <thead>
                 <tr class="text-left">
-                    <x-th>No</x-th>
+                    <x-th class="hidden lg:block">No</x-th>
                     <x-th>Hobi</x-th>
                     @if (Auth::user()->isAdmin())
-                    <x-th>User</x-th>
+                    <x-th class="hidden lg:block">User</x-th>
                     @endif
                     <x-th>#</x-th>
                 </tr>

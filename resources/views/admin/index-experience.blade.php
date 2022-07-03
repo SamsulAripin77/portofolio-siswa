@@ -13,16 +13,16 @@
         <table class="w-full rounded">
             <thead>
                 <tr class="text-left">
-                    <x-th>No</x-th>
+                    <x-th class="hidden lg:block">No</x-th>
                     <x-th>Acara</x-th>
                     <x-th>Jabatan</x-th>
-                    <x-th>Deskripsi</x-th>
-                    <x-th>Tanggal</x-th>
+                    <x-th class="hidden lg:block">Deskripsi</x-th>
+                    <x-th class="hidden lg:block">Tanggal</x-th>
                     <x-th>
                         Bukti
                     </x-th>
                     @if (Auth::user()->isAdmin())
-                    <x-th>User</x-th>
+                    <x-th class="hidden lg:block">User</x-th>
                     @endif
                     <x-th>#</x-th>
                 </tr>
@@ -30,18 +30,18 @@
             <tbody class="bg-gray-50">
                 @foreach ($experiences as $item)
                 <tr class="py-3 text-left">
-                    <x-td>
+                    <x-td class="hidden lg:block">
                         {{$item->id ?? ''}}
                     </x-td>
                     <x-td> {{$item->event ?? '' }} </x-td>
                     <x-td> {{$item->position ?? '' }} </x-td>
-                    <x-td> {{$item->description ?? '' }} </x-td>
-                    <x-td> {{$item->tgl ?? '' }} </x-td>
+                    <x-td class="hidden lg:block"> {{$item->description ?? '' }} </x-td>
+                    <x-td class="hidden lg:block"> {{$item->tgl ?? '' }} </x-td>
                     <x-td> 
                         <a href="{{asset('images/' . $item->image)}}" data-fancybox>File</a>
                     </x-td>
                     @if (Auth::user()->isAdmin())
-                    <x-td>
+                    <x-td class="hidden lg:block">
                         {{
                         $item->user->name
                         }}

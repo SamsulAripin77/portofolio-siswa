@@ -1187,9 +1187,6 @@ select {
 .h-screen {
   height: 100vh;
 }
-.h-40 {
-  height: 10rem;
-}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1709,6 +1706,9 @@ select {
 .pl-2 {
   padding-left: 0.5rem;
 }
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
 .pt-8 {
   padding-top: 2rem;
 }
@@ -1723,9 +1723,6 @@ select {
 }
 .pl-1 {
   padding-left: 0.25rem;
-}
-.pb-2 {
-  padding-bottom: 0.5rem;
 }
 .text-left {
   text-align: left;

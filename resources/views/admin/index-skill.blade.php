@@ -13,7 +13,7 @@
         <table class="rounded w-full">
             <thead>
                 <tr class="text-left">
-                    <x-th>No</x-th>
+                    <x-th class="hidden lg:block">No</x-th>
                     <x-th>Skill</x-th>
                     @if (Auth::user()->isAdmin())
                     <x-th>User</x-th>
@@ -24,7 +24,7 @@
             <tbody class="bg-gray-50">
                 @foreach ($skills as $item)
                 <tr class="py-3 text-left">
-                    <x-td class="px-2 py-3">
+                    <x-td class="hidden lg:block">
                         {{$item->id ?? ''}}
                     </x-td>
                     <x-td> {{$item->skill?? '' }} </x-td>

@@ -13,12 +13,12 @@
         <table class="w-full rounded">
             <thead>
                 <tr class="text-left">
-                    <x-th>No</x-th>
+                    <x-th class="hidden lg:block">No</x-th>
                     <x-th>Nama</x-th>
-                    <x-th>Keterangan</x-th>
+                    <x-th class="hidden lg:block">Keterangan</x-th>
                     <x-th>Bukti</x-th>
                     @if (Auth::user()->isAdmin())
-                    <x-th>User</x-th>
+                    <x-th class="hidden lg:block">User</x-th>
                     @endif
                     <x-th>#</x-th>
                 </tr>
@@ -26,17 +26,17 @@
             <tbody class="bg-gray-50">
                 @foreach ($sertifications as $item)
                 <tr class="py-3 text-left">
-                    <x-td>
+                    <x-td class="hidden lg:block">
                         {{$item->id ?? ''}}
                     </x-td>
                     <x-td> {{$item->title ?? '' }} </x-td>
-                    <x-td> {{$item->description ?? '' }} </x-td>
+                    <x-td class="hidden lg:block"> {{$item->description ?? '' }} </x-td>
                     <x-td> 
                         <a href="{{asset('images/' . $item->image)}}" data-fancybox>File</a>
                     </x-td>
 
                     @if (Auth::user()->isAdmin())
-                    <x-td>
+                    <x-td class="hidden lg:block">
                         {{
                         $item->user->name ?? ''
                         }}
