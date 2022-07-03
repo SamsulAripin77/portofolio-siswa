@@ -39,8 +39,8 @@
             @endif
 
             <!-- Page Content -->
-            <main class="text-center overflow-x-scroll">
-                <div class="p-8 m-8 inline-block w-full" style="max-width: 1200px;" >
+            <main class="text-center">
+                <div class="p-8 inline-block w-full" style="max-width: 1200px;" >
                     {{ $slot }}
                 </div>
             </main> 
