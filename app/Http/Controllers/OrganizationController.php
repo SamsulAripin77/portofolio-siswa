@@ -36,6 +36,10 @@ class OrganizationController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required|mimes:jpg,bmp,png,pdf'
+        ]);
         $organization = new Organization();
         $this->saveData($organization, $request);
 

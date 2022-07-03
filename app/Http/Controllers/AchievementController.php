@@ -35,6 +35,10 @@ class AchievementController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'image' => 'required|mimes:jpg,bmp,png,pdf'
+        ]);
         $achivements = new Achievement();
         $this->saveData($achivements, $request);
 
@@ -50,6 +54,10 @@ class AchievementController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title' => 'required',
+            'image' => 'required|mimes:jpg,bmp,png,pdf'
+        ]);
         $achievement= Achievement::find($id);
         $this->saveData($achievement, $request);
         return back()->with('message', 'Data Berhasil Disimpan');

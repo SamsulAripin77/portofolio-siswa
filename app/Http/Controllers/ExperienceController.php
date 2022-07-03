@@ -35,6 +35,10 @@ class ExperienceController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'event' => 'required',
+            'image' => 'required|mimes:jpg,bmp,png,pdf'
+        ]);
         $experience = new Experience();
         $this->saveData($experience, $request);
 
@@ -52,6 +56,10 @@ class ExperienceController extends Controller
      */
     public function update(Request $request, Experience $experience)
     {
+        $request->validate([
+            'event' => 'required',
+            'image' => 'required|mimes:jpg,bmp,png,pdf'
+        ]);
         $this->saveData($experience, $request);
 
         return back()->with('message','Data Berhasil Disimpan');

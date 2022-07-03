@@ -13,13 +13,13 @@
         <table class="w-full rounded">
             <thead>
                 <tr class="text-left">
-                    <x-th class="hidden lg:block">No</x-th>
+                    <x-th class="hidden lg:unset">No</x-th>
                     <x-th>Posisi</x-th>
                     <x-th>Perusahaan</x-th>
-                    <x-th class="hidden lg:block">Tanggal Mulai</x-th>
-                    <x-th class="hidden lg:block">Tanggal Selesai</x-th>
+                    <x-th class="hidden lg:unset">Tanggal Mulai</x-th>
+                    <x-th class="hidden lg:unset">Tanggal Selesai</x-th>
                     @if (Auth::user()->isAdmin())
-                    <x-th class="hidden lg:block">User</x-th>
+                    <x-th class="hidden lg:unset">User</x-th>
                     @endif
                     <x-th>#</x-th>
                 </tr>
@@ -27,15 +27,15 @@
             <tbody class="bg-gray-50">
                 @foreach ($works as $item)
                 <tr class="py-3 text-left">
-                    <x-td class="hidden lg:block">
+                    <x-td class="hidden lg:unset">
                         {{$item->id ?? ''}}
                     </x-td>
                     <x-td>{{ $item->position ?? '' }} </x-td>
                     <x-td>{{ $item->company ?? '' }} </x-td>
-                    <x-td class="hidden lg:block">{{ $item->tgl_start ?? '' }} </x-td>
-                    <x-td class="hidden lg:block">{{ $item->tgl_end ?? '' }} </x-td>
+                    <x-td class="hidden lg:unset">{{ $item->tgl_start ?? '' }} </x-td>
+                    <x-td class="hidden lg:unset">{{ $item->tgl_end ?? '' }} </x-td>
                     @if (Auth::user()->isAdmin())
-                    <x-td class="hidden lg:block">
+                    <x-td class="hidden lg:unset">
                         {{
                             $item->user->name ?? ''
                         }}

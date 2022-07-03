@@ -36,6 +36,10 @@ class CreationController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'image' => 'required|mimes:jpg,bmp,png,pdf'
+        ]);
         $creations = new Creation();
         $this->saveData($creations, $request);
 
@@ -51,6 +55,10 @@ class CreationController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title' => 'required',
+            'image' => 'required|mimes:jpg,bmp,png,pdf'
+        ]);
         $creation = Creation::find($id);
         $this->saveData($creation, $request);
         return back()->with('message', 'Data Berhasil Disimpan');

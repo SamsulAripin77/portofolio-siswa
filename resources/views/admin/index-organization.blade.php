@@ -13,11 +13,11 @@
         <table class="w-full rounded">
             <thead>
                 <tr class="text-left">
-                    <x-th class="hidden lg:block">No</x-th>
+                    <x-th class="hidden lg:unset">No</x-th>
                     <x-th>Nama</x-th>
-                    <x-th class="hidden lg:block">position</x-th>
-                    <x-th class="hidden lg:block">tahun mulai</x-th>
-                    <x-th class="hidden lg:block">tahun selesai</x-th>
+                    <x-th class="hidden lg:unset">position</x-th>
+                    <x-th class="hidden lg:unset">tahun mulai</x-th>
+                    <x-th class="hidden lg:unset">tahun selesai</x-th>
                     <x-th>Bukti</x-th>
                     @if (Auth::user()->isAdmin())
                     <x-th>User</x-th>
@@ -28,16 +28,16 @@
             <tbody class="bg-gray-50">
                 @foreach ($organizations as $item)
                 <tr class="py-3 text-left">
-                    <x-td class="hidden lg:block">
+                    <x-td class="hidden lg:unset">
                         {{$item->id ?? ''}}
                     </x-td>
                     <x-td> {{$item->name ?? '' }} </x-td>
-                    <x-td class="hidden lg:block" > {{$item->positon ?? ''}}</x-td>
-                    <x-td class="hidden lg:block" > {{$item->thn_mulai ?? ''}}</x-td>
-                    <x-td class="hidden lg:block" > {{$item->thn_akhir ?? ''}} </x-td>
+                    <x-td class="hidden lg:unset" > {{$item->positon ?? ''}}</x-td>
+                    <x-td class="hidden lg:unset" > {{$item->thn_mulai ?? ''}}</x-td>
+                    <x-td class="hidden lg:unset" > {{$item->thn_akhir ?? ''}} </x-td>
                     <x-td> <a href="{{asset('images/' . $item->image)}}" data-fancybox>File</a> </x-td>
                     @if (Auth::user()->isAdmin())
-                    <x-td class="hidden lg:block">
+                    <x-td class="hidden lg:unset">
                         {{
                         $item->user->name
                         }}

@@ -24,7 +24,7 @@
   @if (! Auth::user()->isAdmin())
   <h2 class="pt-4 lg:pt-8 pb-2 text-left text-lg font-bold">Grafik Sertifikasi</h2>
   <div class="max-2-7xl p-8 bg-white rounded-lg">
-    <canvas id="myChart" height="100"></canvas>
+    <canvas id="myChart" height="300"></canvas>
   </div>
   @endif
   @push('scripts')

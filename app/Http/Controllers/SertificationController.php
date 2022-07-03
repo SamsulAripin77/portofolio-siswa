@@ -35,6 +35,10 @@ class SertificationController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'image' => 'required|mimes:jpg,bmp,png,pdf'
+        ]);
         $sertification = new Sertification();
         $this->saveData($sertification, $request);
 
@@ -50,6 +54,10 @@ class SertificationController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title' => 'required',
+            'image' => 'required|mimes:jpg,bmp,png,pdf'
+        ]);
         $sertification = Sertification::find($id);
         $this->saveData($sertification, $request);
         return back()->with('message', 'Data Berhasil Disimpan');
