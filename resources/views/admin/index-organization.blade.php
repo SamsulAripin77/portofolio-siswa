@@ -13,14 +13,14 @@
         <table class="w-full rounded">
             <thead>
                 <tr class="text-left">
-                    <x-th class="hidden lg:unset">No</x-th>
+                    <x-th class="hidden lg:table-cell">No</x-th>
                     <x-th>Nama</x-th>
-                    <x-th class="hidden lg:unset">position</x-th>
-                    <x-th class="hidden lg:unset">tahun mulai</x-th>
-                    <x-th class="hidden lg:unset">tahun selesai</x-th>
+                    <x-th class="hidden lg:table-cell">position</x-th>
+                    <x-th class="hidden lg:table-cell">tahun mulai</x-th>
+                    <x-th class="hidden lg:table-cell">tahun selesai</x-th>
                     <x-th>Bukti</x-th>
                     @if (Auth::user()->isAdmin())
-                    <x-th>User</x-th>
+                    <x-th class="hidden lg:table-cell">User</x-th>
                     @endif
                     <x-th>#</x-th>
                 </tr>
@@ -28,16 +28,16 @@
             <tbody class="bg-gray-50">
                 @foreach ($organizations as $item)
                 <tr class="py-3 text-left">
-                    <x-td class="hidden lg:unset">
+                    <x-td class="hidden lg:table-cell">
                         {{$item->id ?? ''}}
                     </x-td>
                     <x-td> {{$item->name ?? '' }} </x-td>
-                    <x-td class="hidden lg:unset" > {{$item->positon ?? ''}}</x-td>
-                    <x-td class="hidden lg:unset" > {{$item->thn_mulai ?? ''}}</x-td>
-                    <x-td class="hidden lg:unset" > {{$item->thn_akhir ?? ''}} </x-td>
+                    <x-td class="hidden lg:table-cell" > {{$item->positon ?? ''}}</x-td>
+                    <x-td class="hidden lg:table-cell" > {{$item->thn_mulai ?? ''}}</x-td>
+                    <x-td class="hidden lg:table-cell" > {{$item->thn_akhir ?? ''}} </x-td>
                     <x-td> <a href="{{asset('images/' . $item->image)}}" data-fancybox>File</a> </x-td>
                     @if (Auth::user()->isAdmin())
-                    <x-td class="hidden lg:unset">
+                    <x-td class="hidden lg:table-cell">
                         {{
                         $item->user->name
                         }}
@@ -56,12 +56,14 @@
                             </x-button>
                         </a>
                         @endif
+                        @if (! Auth::user()->isAdmin())
                         <a href="">
                             <x-button class="bg-yellow-600 text-gray-800" @click="showModal2 = true" field="button"
                                 id="btn-edit" onclick="editMe(event, {{$item}})">
                                 <i class="fa fa-pen text-white"></i>
                             </x-button>
                         </a>
+                        @endif
                         <form action="{{route('organizations.destroy', $item)}}" method="post"
                             onsubmit="return confirm('are you sure want to delete data')">
                             @csrf

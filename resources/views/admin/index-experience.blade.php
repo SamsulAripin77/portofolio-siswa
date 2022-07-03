@@ -13,16 +13,16 @@
         <table class="w-full rounded">
             <thead>
                 <tr class="text-left">
-                    <x-th class="hidden lg:unset">No</x-th>
+                    <x-th class="hidden lg:table-cell">No</x-th>
                     <x-th>Acara</x-th>
                     <x-th>Jabatan</x-th>
-                    <x-th class="hidden lg:unset">Deskripsi</x-th>
-                    <x-th class="hidden lg:unset">Tanggal</x-th>
+                    <x-th class="hidden lg:table-cell">Deskripsi</x-th>
+                    <x-th class="hidden lg:table-cell">Tanggal</x-th>
                     <x-th>
                         Bukti
                     </x-th>
                     @if (Auth::user()->isAdmin())
-                    <x-th class="hidden lg:unset">User</x-th>
+                    <x-th class="hidden lg:table-cell">User</x-th>
                     @endif
                     <x-th>#</x-th>
                 </tr>
@@ -30,18 +30,18 @@
             <tbody class="bg-gray-50">
                 @foreach ($experiences as $item)
                 <tr class="py-3 text-left">
-                    <x-td class="hidden lg:unset">
+                    <x-td class="hidden lg:table-cell">
                         {{$item->id ?? ''}}
                     </x-td>
                     <x-td> {{$item->event ?? '' }} </x-td>
                     <x-td> {{$item->position ?? '' }} </x-td>
-                    <x-td class="hidden lg:unset"> {{$item->description ?? '' }} </x-td>
-                    <x-td class="hidden lg:unset"> {{$item->tgl ?? '' }} </x-td>
+                    <x-td class="hidden lg:table-cell"> {{$item->description ?? '' }} </x-td>
+                    <x-td class="hidden lg:table-cell"> {{$item->tgl ?? '' }} </x-td>
                     <x-td> 
                         <a href="{{asset('images/' . $item->image)}}" data-fancybox>File</a>
                     </x-td>
                     @if (Auth::user()->isAdmin())
-                    <x-td class="hidden lg:unset">
+                    <x-td class="hidden lg:table-cell">
                         {{
                         $item->user->name
                         }}
@@ -60,12 +60,14 @@
                             </x-button>
                         </a>
                         @endif
+                        @if (! Auth::user()->isAdmin())
                         <a href="">
                             <x-button class="bg-yellow-600 text-gray-800" @click="showModal2 = true" field="button"
                                 id="btn-edit" onclick="editMe(event, {{$item}})">
                                 <i class="fa fa-pen text-white"></i>
                             </x-button>
                         </a>
+                        @endif
                         <form action="{{route('experiences.destroy', $item)}}" method="post"
                             onsubmit="return confirm('are you sure want to delete data')">
                             @csrf

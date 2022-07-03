@@ -18,7 +18,9 @@
                     @if (Auth::user()->isAdmin())
                     <x-th>User</x-th>
                     @endif
+                    @if (! Auth::user()->isAdmin())
                     <x-th>#</x-th>
+                    @endif
                 </tr>
             </thead>
             <tbody class="bg-gray-50">
@@ -35,6 +37,7 @@
                         }}
                     </x-td>
                     @endif
+                    @if (! Auth::user()->isAdmin())
                     <td class="px-2 py-3 flex gap-2">
                         <a href="">
                             <x-button class="bg-yellow-600 text-gray-800" @click="showModal2 = true" field="button"
@@ -51,6 +54,7 @@
                             </x-button>
                         </form>
                     </td>
+                    @endif
                 </tr>
                 @endforeach
             </tbody>

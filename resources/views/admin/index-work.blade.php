@@ -13,13 +13,13 @@
         <table class="w-full rounded">
             <thead>
                 <tr class="text-left">
-                    <x-th class="hidden lg:unset">No</x-th>
+                    <x-th class="hidden lg:table-cell">No</x-th>
                     <x-th>Posisi</x-th>
                     <x-th>Perusahaan</x-th>
-                    <x-th class="hidden lg:unset">Tanggal Mulai</x-th>
-                    <x-th class="hidden lg:unset">Tanggal Selesai</x-th>
+                    <x-th class="hidden lg:table-cell">Tanggal Mulai</x-th>
+                    <x-th class="hidden lg:table-cell">Tanggal Selesai</x-th>
                     @if (Auth::user()->isAdmin())
-                    <x-th class="hidden lg:unset">User</x-th>
+                    <x-th class="hidden lg:table-cell">User</x-th>
                     @endif
                     <x-th>#</x-th>
                 </tr>
@@ -27,15 +27,15 @@
             <tbody class="bg-gray-50">
                 @foreach ($works as $item)
                 <tr class="py-3 text-left">
-                    <x-td class="hidden lg:unset">
+                    <x-td class="hidden lg:table-cell">
                         {{$item->id ?? ''}}
                     </x-td>
                     <x-td>{{ $item->position ?? '' }} </x-td>
                     <x-td>{{ $item->company ?? '' }} </x-td>
-                    <x-td class="hidden lg:unset">{{ $item->tgl_start ?? '' }} </x-td>
-                    <x-td class="hidden lg:unset">{{ $item->tgl_end ?? '' }} </x-td>
+                    <x-td class="hidden lg:table-cell">{{ $item->tgl_start ?? '' }} </x-td>
+                    <x-td class="hidden lg:table-cell">{{ $item->tgl_end ?? '' }} </x-td>
                     @if (Auth::user()->isAdmin())
-                    <x-td class="hidden lg:unset">
+                    <x-td class="hidden lg:table-cell">
                         {{
                             $item->user->name ?? ''
                         }}
@@ -54,12 +54,14 @@
                             </x-button>
                         </a>
                         @endif
+                        @if (! Auth::user()->isAdmin())
                         <a href="">
                             <x-button class="bg-yellow-600 text-gray-800" @click="showModal2 = true" field="button"
                                 id="btn-edit" onclick="editMe(event, {{$item}})">
                                 <i class="fa fa-pen text-white"></i>
                             </x-button>
                         </a>
+                        @endif
                         <form action="{{route('works.destroy', $item)}}" method="post"
                             onsubmit="return confirm('are you sure want to delete data')">
                             @csrf

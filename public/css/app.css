@@ -2527,6 +2527,14 @@ select {
     display: flex;
   }
 
+  .lg\:table {
+    display: table;
+  }
+
+  .lg\:table-cell {
+    display: table-cell;
+  }
+
   .lg\:hidden {
     display: none;
   }
