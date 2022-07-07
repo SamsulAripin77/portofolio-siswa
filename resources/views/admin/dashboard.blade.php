@@ -10,7 +10,16 @@
       <div class="flex gap-2 lg:gap-6 justify-between items-center">
         <div class="text-left">
           <div class="text-md font-bold uppercase">{{$item['label'] ?? ''}}</div>
-          <h2 class="text-xl font-bold">{{$item['count'] ?? ''}}</h2>
+          <table>
+            <tr>
+              <td class=""><h2 class="pr-4 text-md font-bold">All </h2></td>
+              <td class=""><h2 class=" text-md font-bold">{{$item['count'] ?? ''}} </h2></td>
+            </tr>
+            <tr>
+              <td class=""><h2 class="pr-4 text-md font-bold">New </h2></td>
+              <td class=""><h2 class=" text-md font-bold">{{$item['today'] ?? ''}}</h2></td>
+            </tr>
+          </table>
         </div>
         <div>
           <span class="bg-blue-200 text-gray-600 px-4 py-3 rounded-full ">

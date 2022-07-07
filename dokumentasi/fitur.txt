@@ -1,0 +1,6 @@
+notifikasi slack
+create admin
+add new data to dashboard
+decrease chart height
+sweet alert
+remove validation file in edit
