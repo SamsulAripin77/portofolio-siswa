@@ -57,7 +57,7 @@ class CreationController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'image' => 'required|mimes:jpg,bmp,png,pdf'
+            'image' => 'mimes:jpg,bmp,png,pdf'
         ]);
         $creation = Creation::find($id);
         $this->saveData($creation, $request);

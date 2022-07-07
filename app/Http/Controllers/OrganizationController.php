@@ -38,7 +38,7 @@ class OrganizationController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'required|mimes:jpg,bmp,png,pdf'
+            'image' => 'mimes:jpg,bmp,png,pdf'
         ]);
         $organization = new Organization();
         $this->saveData($organization, $request);

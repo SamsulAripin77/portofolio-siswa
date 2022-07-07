@@ -56,7 +56,7 @@ class SertificationController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'image' => 'required|mimes:jpg,bmp,png,pdf'
+            'image' => 'mimes:jpg,bmp,png,pdf'
         ]);
         $sertification = Sertification::find($id);
         $this->saveData($sertification, $request);

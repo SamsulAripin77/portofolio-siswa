@@ -58,7 +58,7 @@ class ExperienceController extends Controller
     {
         $request->validate([
             'event' => 'required',
-            'image' => 'required|mimes:jpg,bmp,png,pdf'
+            'image' => 'mimes:jpg,bmp,png,pdf'
         ]);
         $this->saveData($experience, $request);
 

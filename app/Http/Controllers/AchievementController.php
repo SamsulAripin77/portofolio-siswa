@@ -56,7 +56,7 @@ class AchievementController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'image' => 'required|mimes:jpg,bmp,png,pdf'
+            'image' => 'mimes:jpg,bmp,png,pdf'
         ]);
         $achievement= Achievement::find($id);
         $this->saveData($achievement, $request);
