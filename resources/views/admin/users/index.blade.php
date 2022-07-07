@@ -13,6 +13,7 @@
                 <tr class="text-center">
                     <x-th>No</x-th>
                     <x-th>Avatar</x-th>
+                    <x-th>Role</x-th>
                     <x-th>Name</x-th>
                     <x-th>Email</x-th>
                     <x-th>Telp</x-th>
@@ -32,6 +33,9 @@
                     </td>
                     <td>
                         <img class="w-10 h-10 shadow-md rounded-full border border-gray-300 border-2" src="{{$item->profile_photo_url}}" alt="Av" srcset="">
+                    </td>
+                    <td class="px-2 py-3">
+                        {{$item->role ?? ''}}
                     </td>
                     <td class="px-2 py-3">
                         {{$item->name ?? ''}}

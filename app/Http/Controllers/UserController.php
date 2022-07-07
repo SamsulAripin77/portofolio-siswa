@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with(['profile'])->where('role', 'user')->get();
+        $users = User::with(['profile'])->get();
         return view('admin.users.index', compact('users'));
     }
 
