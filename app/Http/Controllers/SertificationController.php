@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Sertification;
 use Illuminate\Http\Request;
 use App\Http\Traits\UploadCoverTrait;
+use App\Mail\NotifMail;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class SertificationController extends Controller
 {
@@ -40,6 +42,8 @@ class SertificationController extends Controller
             'image' => 'required|mimes:jpg,bmp,png,pdf'
         ]);
         $sertification = new Sertification();
+        $user = User::find(Auth::id());
+        Mail::to($user->email)->send(new NotifMail('Sertification',$user->name));
         $this->saveData($sertification, $request);
 
         return back()->with('message', 'Data Berhasil Disimpan');

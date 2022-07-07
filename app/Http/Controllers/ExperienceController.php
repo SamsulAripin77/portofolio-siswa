@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Traits\UploadCoverTrait;
+use App\Mail\NotifMail;
 use App\Models\Experience;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class ExperienceController extends Controller
 {
@@ -61,7 +63,8 @@ class ExperienceController extends Controller
             'image' => 'mimes:jpg,bmp,png,pdf'
         ]);
         $this->saveData($experience, $request);
-
+        $user = User::find(Auth::id());
+        Mail::to($user->email)->send(new NotifMail('Sertification',$user->name));
         return back()->with('message','Data Berhasil Disimpan');
     }
 

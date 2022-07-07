@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Traits\UploadCoverTrait;
+use App\Mail\NotifMail;
 use App\Models\Organization;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class OrganizationController extends Controller
 {
@@ -42,7 +44,8 @@ class OrganizationController extends Controller
         ]);
         $organization = new Organization();
         $this->saveData($organization, $request);
-
+        $user = User::find(Auth::id());
+        Mail::to($user->email)->send(new NotifMail('Sertification',$user->name));
         return back()->with('message','Data Berhasil Disimpan');
     }
 

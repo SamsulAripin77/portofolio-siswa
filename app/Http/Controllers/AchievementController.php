@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Traits\UploadCoverTrait;
+use App\Mail\NotifMail;
 use App\Models\Achievement;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AchievementController extends Controller
 {
@@ -60,6 +62,8 @@ class AchievementController extends Controller
         ]);
         $achievement= Achievement::find($id);
         $this->saveData($achievement, $request);
+        $user = User::find(Auth::id());
+        Mail::to($user->email)->send(new NotifMail('Sertification',$user->name));
         return back()->with('message', 'Data Berhasil Disimpan');
     }
 

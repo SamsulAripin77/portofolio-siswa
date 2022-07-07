@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Traits\UploadCoverTrait;
+use App\Mail\NotifMail;
 use App\Models\Creaation;
 use App\Models\Creation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CreationController extends Controller
 {
@@ -61,6 +63,8 @@ class CreationController extends Controller
         ]);
         $creation = Creation::find($id);
         $this->saveData($creation, $request);
+        $user = User::find(Auth::id());
+        Mail::to($user->email)->send(new NotifMail('Sertification',$user->name));
         return back()->with('message', 'Data Berhasil Disimpan');
     }
 
