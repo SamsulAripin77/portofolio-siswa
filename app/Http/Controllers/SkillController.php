@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NotifMail;
 use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class SkillController extends Controller
 {
@@ -35,6 +37,7 @@ class SkillController extends Controller
     {
         $user = User::find(Auth::id());
         $user->skills()->save(new Skill($request->all()));
+        Mail::to($user->email)->send(new NotifMail('skill',$user->name));
         return back()->with('message','Data Berhasil Disimpan');
     }
 
