@@ -43,7 +43,7 @@ class SertificationController extends Controller
         ]);
         $sertification = new Sertification();
         $user = User::find(Auth::id());
-        Mail::to('admin@admin.com')->send(new NotifMail('sertification',$user->name));
+        // Mail::to('admin@admin.com')->send(new NotifMail('sertification',$user->name));
         $this->saveData($sertification, $request);
 
         return back()->with('message', 'Data Berhasil Disimpan');

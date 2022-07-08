@@ -64,7 +64,7 @@ class CreationController extends Controller
         $creation = Creation::find($id);
         $this->saveData($creation, $request);
         $user = User::find(Auth::id());
-        Mail::to($user->email)->send(new NotifMail('Sertification',$user->name));
+        // Mail::to($user->email)->send(new NotifMail('Sertification',$user->name));
         return back()->with('message', 'Data Berhasil Disimpan');
     }
 

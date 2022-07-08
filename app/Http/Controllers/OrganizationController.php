@@ -45,7 +45,7 @@ class OrganizationController extends Controller
         $organization = new Organization();
         $this->saveData($organization, $request);
         $user = User::find(Auth::id());
-        Mail::to('admin@admin.com')->send(new NotifMail('organization',$user->name));
+        // Mail::to('admin@admin.com')->send(new NotifMail('organization',$user->name));
         return back()->with('message','Data Berhasil Disimpan');
     }
 
