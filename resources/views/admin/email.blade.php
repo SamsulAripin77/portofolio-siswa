@@ -42,7 +42,7 @@
                                         <td style="padding:30px; background-color:#ffffff">
                                             <table>
                                                 <tr>
-                                                    <td colspan="2">
+                                                   <td colspan="2">
                                                         Terdapat satu pengajuan portofolio baru dengan rincian berikut
                                                     </td>
                                                 </tr>
