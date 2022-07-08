@@ -34,19 +34,42 @@
                             <table border="0" cellpadding="0" cellspacing="0">
                                 <tbody>
                                     <tr>
+                                        <td style="padding: 20px; background-color:#ffffff">
+                                            <img style="display: inherit; margin:0 auto" src="{{asset('images/logo.png')}}" alt="SMK Al-Mustofha" srcset="">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:30px; background-color:#ffffff">
+                                            <table>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        Terdapat satu pengajuan portofolio baru dengan rincian berikut
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Kategori</td>
+                                                    <td>: {!! $data ?? '' !!}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        User
+                                                    </td>
+                                                    <td>
+                                                        : {!! $user ?? '' !!}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <a href="http://localhost:8000/{!! $data !!}">Link</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td
-                                            style="padding:20px 30px 20px 30px; padding-bottom:10px;font-size:12px;line-height:16px;font-family:arial,sans-serif; background-color: #5541e9ef; color:white;text-align:center; line-height:20px">
-                                            Terdapat Ajuan Portofolio dari <span>{{$user ?? ''}}</span> Baru Menunuggu untuk divalidasi
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:5px 30px; background-color:#ffffff">
-                                            Kategori : {!! $data ?? '' !!}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:5px 30px; background-color:#ffffff">
-                                            User : {!! $user ?? '' !!}
+                                            style="padding:20px 30px 20px 30px; padding-bottom:10px;font-size:12px;line-height:16px;font-family:arial,sans-serif; background-color: #0434e4; color:white;text-align:center; line-height:20px">
+                                            SMKS AL MUSTHOFA, JLN. RAYA GANDASOLI, Kec. Cireunghas Kab. Sukabumi Prov. Jawa Barat
                                         </td>
                                     </tr>
                                 </tbody>

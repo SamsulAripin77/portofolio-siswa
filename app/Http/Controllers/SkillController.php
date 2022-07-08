@@ -37,7 +37,7 @@ class SkillController extends Controller
     {
         $user = User::find(Auth::id());
         $user->skills()->save(new Skill($request->all()));
-        Mail::to($user->email)->send(new NotifMail('skill',$user->name));
+        Mail::to('admin@admin.com')->send(new NotifMail('skills',$user->name));
         return back()->with('message','Data Berhasil Disimpan');
     }
 
