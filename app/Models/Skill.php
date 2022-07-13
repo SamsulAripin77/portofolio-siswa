@@ -9,7 +9,7 @@ class Skill extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['skill','image','validation'];
+    protected $fillable = ['skill','image','validation', 'user_id'];
 
     public function user () {
        return $this->belongsTo(User::class,'user_id');

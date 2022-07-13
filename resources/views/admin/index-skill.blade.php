@@ -19,9 +19,7 @@
                     @if (Auth::user()->isAdmin())
                     <x-th>User</x-th>
                     @endif
-                    @if (! Auth::user()->isAdmin())
                     <x-th>#</x-th>
-                    @endif
                 </tr>
             </thead>
             <tbody class="bg-gray-50">
@@ -41,7 +39,6 @@
                         }}
                     </x-td>
                     @endif
-                    @if (! Auth::user()->isAdmin())
                     <td class="px-2 py-3 flex gap-2">
                         @if (Auth::user()->isAdmin())
                         <a href="{{route('skills.validation', [$item,$item->validation])}}">
@@ -55,6 +52,7 @@
                             </x-button>
                         </a>
                         @endif
+                    @if (! Auth::user()->isAdmin())
                         <a href="">
                             <x-button class="bg-yellow-600 text-gray-800" @click="showModal2 = true" field="button"
                                 id="btn-edit" onclick="editMe(event, {{$item}})">

@@ -29,7 +29,7 @@
                     SKILL
                 </h2>
                 <ul class="px-2 text-sm font-semibold text-gray-800 list-disc list-inside">
-                    @foreach ($user->skills as $item)
+                    @foreach ($user->isValidSkill as $item)
                         <li class="mb-2">{{$item->skill ?? ''}}</li>
                     @endforeach
                 </ul>

@@ -68,6 +68,10 @@ class User extends Authenticatable
     public function skills () {
        return $this->hasMany(Skill::class,'user_id');
     }
+
+    public function isValidSkill(){
+      return $this->skills()->where('validation', true);
+    }
     
     public function hobies () {
        return $this->hasMany(Hoby::class,'user_id');

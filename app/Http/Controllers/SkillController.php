@@ -83,10 +83,11 @@ class SkillController extends Controller
         return back()->with('message','Data Berhasil Dihapus');
     }
 
-    public function validation(Skill $sertification, $validation){
+    public function validation($id, $validation){
         $val = $validation == '1' ? false : true;
-        $sertification['validation'] = $val;
-        $sertification->save();
+        $skill = Skill::find($id);
+        $skill['validation'] = $val;
+        $skill->save();
         return back()->with('message','Data Berhasil Disimpan');
     }
 }
