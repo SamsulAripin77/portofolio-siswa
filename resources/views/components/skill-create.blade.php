@@ -7,3 +7,4 @@
     <option value="Photography">Photography</option>
 </select>
 </div>
+<x-input field="image" lable="image" type="file" />

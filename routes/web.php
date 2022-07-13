@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('/users/{id}', [UserController::class,'update'])->name('users.update');
     Route::get('/users/portofolio', [UserController::class,'portofolio'])->name('users.portofolio');
 
+    Route::get('/skills/validation/{skills}/{validation}', [SkillController::class,'validation'])->name('skills.validation');
     Route::resource('/skills',SkillController::class);
     Route::resource('/hobbies',HobyController::class);
 

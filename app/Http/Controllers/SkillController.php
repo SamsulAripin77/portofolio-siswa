@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Traits\UploadCoverTrait;
 use App\Mail\NotifMail;
 use App\Models\Skill;
 use App\Models\User;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 
 class SkillController extends Controller
 {
+    use UploadCoverTrait;
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +38,11 @@ class SkillController extends Controller
     public function store(Request $request)
     {
         $user = User::find(Auth::id());
-        $user->skills()->save(new Skill($request->all()));
+        $image = $this->uploadCover($request);
+        // return $image;
+        $data = $request->all();
+        $data['image'] = $image;
+        $user->skills()->save(new Skill($data));
         Mail::to('admin@admin.com')->send(new NotifMail('skills',$user->name));
         return back()->with('message','Data Berhasil Disimpan');
     }
@@ -51,8 +57,15 @@ class SkillController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'skill' => 'required',
+            'image' => 'mimes:jpg,bmp,png,pdf'
+        ]);
         $skill = Skill::find($id);
-        $skill->update($request->all());
+        $data = $request->all();
+        $image = $this->uploadCover($request);
+        $data['image'] = $image;
+        $skill->update($data);
         
         return back()->with('messag','Data Berhasil Disimpan');
     }
@@ -68,5 +81,12 @@ class SkillController extends Controller
         $skill->delete();
 
         return back()->with('message','Data Berhasil Dihapus');
+    }
+
+    public function validation(Skill $sertification, $validation){
+        $val = $validation == '1' ? false : true;
+        $sertification['validation'] = $val;
+        $sertification->save();
+        return back()->with('message','Data Berhasil Disimpan');
     }
 }

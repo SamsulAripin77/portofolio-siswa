@@ -25,7 +25,6 @@ class SertificationController extends Controller
             $sertifications = Sertification::latest()->get();
         }
 
-
         return view('admin.index-sertification', compact('sertifications'));
     }
 
